@@ -33,8 +33,7 @@ public class Actividad2Activity extends AppCompatActivity implements View.OnClic
         botonRojo.setOnClickListener(this);
         botonVerde.setOnClickListener(this);
     }
-
-    @SuppressLint("ResourceAsColor")
+    
     @Override
     public void onClick(View v) {
 
