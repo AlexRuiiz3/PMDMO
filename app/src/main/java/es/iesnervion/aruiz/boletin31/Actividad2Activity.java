@@ -1,18 +1,13 @@
+/*Haz una aplicacion que permita que el usuario introduzca un texto
+ y que disponga de tres botones para cambiar el color del texto a azul, rojo y verde.
+*/
 package es.iesnervion.aruiz.boletin31;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import es.iesnervion.aruiz.boletin31.databinding.ActivityActividad2Binding;
 
 public class Actividad2Activity extends AppCompatActivity implements View.OnClickListener {
 

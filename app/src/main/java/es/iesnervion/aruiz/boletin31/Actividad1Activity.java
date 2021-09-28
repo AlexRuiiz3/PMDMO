@@ -1,3 +1,6 @@
+/*Haz una aplicacion que tome dos valores introducidos por el usuario y que
+ tras pulsar un boton de Suma muestre el resultado de sumar ambos valores.
+ */
 package es.iesnervion.aruiz.boletin31;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +42,7 @@ public class Actividad1Activity extends AppCompatActivity implements View.OnClic
             resultado = String.valueOf(Integer.parseInt(textoEditText1) + Integer.parseInt(textoEditText2));
         }
 
-        textResultado.setText(getString(R.string.Resultado)+resultado);
+        textResultado.setText(getString(R.string.Resultado,resultado));
 
     }
 }

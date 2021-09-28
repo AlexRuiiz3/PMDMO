@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">Boletin 3.1</string>
-
-
     <string name="IngreseDosNumerosSumar">Ingresa dos numeros para sumarlos</string>
     <string name="EjemploNumero10">Ejemplo 10</string>
     <string name="SimboloSuma">+</string>
-    <string name="Resultado">Resultado:</string>
+    <string name="Resultado">Resultado: %1$s</string>
     <string name="Sumar">Sumar</string>
     <string name="EjemploTexto">Ejemplo: Autobus</string>
     <string name="Azul">Azul</string>

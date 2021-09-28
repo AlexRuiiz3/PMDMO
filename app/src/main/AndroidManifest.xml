@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Boletin31">
         <activity
+            android:name=".Actividad3Activity"
+            android:exported="true" />
+        <activity
             android:name=".Actividad1Activity"
             android:exported="true" />
         <activity
