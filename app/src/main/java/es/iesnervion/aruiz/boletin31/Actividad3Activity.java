@@ -8,6 +8,7 @@ package es.iesnervion.aruiz.boletin31;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,14 +33,13 @@ public class Actividad3Activity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         EditText editText = findViewById(R.id.editTextAlign);
 
-
         switch (view.getId()){
             case R.id.buttonTextAlingLeft:
-
+                editText.setGravity(Gravity.START);
             break;
 
             case R.id.buttonTextAlingRight:
-
+                editText.setGravity(Gravity.END);
             break;
         }
 
