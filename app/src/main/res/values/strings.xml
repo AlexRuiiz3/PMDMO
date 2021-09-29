@@ -13,5 +13,7 @@
     <string name="Alinear_Izquierda">Alinear Izquierda</string>
     <string name="SignoMayor"> > </string>
     <string name="SignoMenor"><![CDATA[<]]></string>
+    <string name="SignoMas">+</string>
+    <string name="SignoMenos">-</string>
 
 </resources>

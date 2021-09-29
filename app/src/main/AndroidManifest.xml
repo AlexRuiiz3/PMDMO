@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Boletin31">
         <activity
+            android:name=".Actividad4Activity"
+            android:exported="true" />
+        <activity
             android:name=".Actividad3Activity"
             android:exported="true" />
         <activity
@@ -19,7 +22,7 @@
             android:name=".Actividad1Activity"
             android:exported="true" />
         <activity
-            android:name=".Actividad4Activity"
+            android:name=".Actividad5Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
