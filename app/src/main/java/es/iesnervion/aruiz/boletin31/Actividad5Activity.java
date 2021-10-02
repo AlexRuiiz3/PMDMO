@@ -1,3 +1,8 @@
+/*
+Crear una aplicacion en la que el usuairo escriba un texto y tenga debajo dos botones
+uno para aumentar el texto(+) y otra para disminuirlo(-)
+
+ */
 package es.iesnervion.aruiz.boletin31;
 
 import androidx.appcompat.app.AppCompatActivity;

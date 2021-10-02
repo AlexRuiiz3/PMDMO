@@ -1,8 +1,11 @@
+/*
+Crea una galeria de imagenes basicas. Que muestre dos botones
+"Siguiente" y "Anterior", que al ser pulsados muestren la imagen siguiente o la anterior
+ */
 package es.iesnervion.aruiz.boletin31;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;

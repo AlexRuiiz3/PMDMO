@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#F44336"
-        android:text="@string/SignoMenor"
-        android:textSize="34sp"
+        android:text="@string/Anterior"
+        android:textSize="20sp"
         android:textColor="@color/white"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#F44336"
-        android:text="@string/SignoMayor"
-        android:textSize="34sp"
+        android:text="@string/Siguiente"
+        android:textSize="20sp"
         android:textColor="@color/white"
 
         app:layout_constraintEnd_toEndOf="parent"

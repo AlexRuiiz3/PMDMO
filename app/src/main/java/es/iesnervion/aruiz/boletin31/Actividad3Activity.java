@@ -12,7 +12,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class Actividad3Activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,8 +20,8 @@ public class Actividad3Activity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad3);
 
-        Button botonTextIzq = findViewById(R.id.buttonTextAlingLeft);
-        Button botonTextDer = findViewById(R.id.buttonTextAlingRight);
+        Button botonTextIzq = findViewById(R.id.buttonTextAlingLeft),
+               botonTextDer = findViewById(R.id.buttonTextAlingRight);
 
         botonTextIzq.setOnClickListener(this);
         botonTextDer.setOnClickListener(this);

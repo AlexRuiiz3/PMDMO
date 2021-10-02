@@ -20,9 +20,9 @@ public class Actividad2Activity extends AppCompatActivity implements View.OnClic
 
         editText = findViewById(R.id.editTextActividad2);
 
-        Button botonAzul = findViewById(R.id.buttonAzulAct2);
-        Button botonRojo = findViewById(R.id.buttonRojoAct2);
-        Button botonVerde = findViewById(R.id.buttonVerdeAct2);
+        Button botonAzul = findViewById(R.id.buttonAzulAct2),
+               botonRojo = findViewById(R.id.buttonRojoAct2),
+               botonVerde = findViewById(R.id.buttonVerdeAct2);
 
         botonAzul.setOnClickListener(this);
         botonRojo.setOnClickListener(this);
