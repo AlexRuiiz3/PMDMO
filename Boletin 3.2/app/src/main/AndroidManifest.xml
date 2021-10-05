@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Boletin32">
         <activity
-            android:name=".Actividad2Activity"
+            android:name=".Actividad1Activity"
             android:exported="true" />
         <activity
-            android:name=".Actividad1Activity"
+            android:name=".Actividad2Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
