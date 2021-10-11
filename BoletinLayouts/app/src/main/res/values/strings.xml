@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">BoletinLayouts</string>
+    <string name="Simbolo_Porcentaje">%</string>
+    <string name="Simbolo_CE">CE</string>
+    <string name="Simbolo_C">C</string>
+    <string name="Simbolo_Borrar"><![CDATA[<-]]></string>
+    <string name="Simbolo_1X">1/x</string>
+    <string name="Simbolo_x2">x^2</string>
+    <string name="Simbolo_RaizCuadrada">Raiz</string>
+    <string name="Simbolo_Dividir">/</string>
+    <string name="Simbolo_Multiplicar">X</string>
+    <string name="Simbolo_Restar">-</string>
+    <string name="Simbolo_Sumar">+</string>
+    <string name="Simbolo_MasMenos">+/-</string>
+    <string name="Simbolo_Coma">,</string>
+    <string name="Simbolo_Igual">=</string>
+    <string name="Numero1">1</string>
+    <string name="Numero2">2</string>
+    <string name="Numero3">3</string>
+    <string name="Numero4">4</string>
+    <string name="Numero5">5</string>
+    <string name="Numero6">6</string>
+    <string name="Numero7">7</string>
+    <string name="Numero8">8</string>
+    <string name="Numero9">9</string>
+    <string name="Numero0">0</string>
+
+
+
 </resources>
