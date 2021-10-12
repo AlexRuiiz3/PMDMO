@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:visibility="visible"
     tools:context=".Actividad1Activity">
 
     <TextView
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/textViewResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
@@ -48,7 +49,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/buttonBorrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -63,7 +64,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/button1X"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -71,7 +72,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/buttonXElevado2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -79,7 +80,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/buttonRaiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -87,50 +88,11 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/buttonDividir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Simbolo_Dividir"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Numero7"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Numero8"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="9"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Simbolo_Multiplicar"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -141,7 +103,46 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button27"
+            android:id="@+id/buttonNumero7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Numero7"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonNumero8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Numero8"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonNumero9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Numero9"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonMultiplicar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Simbolo_Multiplicar"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonNumero4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -149,7 +150,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button28"
+            android:id="@+id/buttonNumero5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -157,7 +158,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button29"
+            android:id="@+id/buttonNumero6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -165,7 +166,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button30"
+            android:id="@+id/buttonRestar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -180,7 +181,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button31"
+            android:id="@+id/buttonNumero1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -188,7 +189,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button32"
+            android:id="@+id/buttonNumero2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -196,7 +197,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button33"
+            android:id="@+id/buttonNumero3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -204,7 +205,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button34"
+            android:id="@+id/buttonSumar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -219,7 +220,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button35"
+            android:id="@+id/buttonMasMenos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -227,7 +228,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button36"
+            android:id="@+id/buttonNumero0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -235,7 +236,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button37"
+            android:id="@+id/buttonComa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -243,7 +244,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button38"
+            android:id="@+id/buttonIgual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
