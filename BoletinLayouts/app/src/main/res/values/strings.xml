@@ -24,4 +24,12 @@
     <string name="Numero8">8</string>
     <string name="Numero9">9</string>
     <string name="Numero0">0</string>
+    <string name="Tu_Jugada">Tu Jugada</string>
+    <string name="Piedra">Piedra</string>
+    <string name="Tijera">Tijera</string>
+    <string name="Papel">Papel</string>
+    <string name="Tu_rival">Tu rival</string>
+    <string name="volver_a_jugar">Volver a Jugar</string>
+    <string name="ganador">Ganador:</string>
+    <string name="confirmar_jugada">Confirmar Jugada</string>
 </resources>

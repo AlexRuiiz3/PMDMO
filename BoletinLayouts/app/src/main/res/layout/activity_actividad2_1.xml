@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Actividad2Activity">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroupPiedraPapelTijera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioButtonPiedra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text="@string/Piedra"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonPapel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/Papel"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonTijera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/Tijera"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imagenPiedraPapelTijera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="100dp"
+        android:minHeight="100dp"
+        app:srcCompat="@drawable/imagentijera"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/buttonConfirmarJugada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:text="@string/confirmar_jugada" />
+
+    <ImageView
+        android:id="@+id/imagenPiedraPapelTijeraCPU"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/imagenpapel" />
+
+    <TextView
+        android:id="@+id/textGanador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/ganador"
+        android:textColor="#040404"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/buttonVolverAJugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:text="@string/volver_a_jugar"
+        android:visibility="invisible" />
+
+
+</LinearLayout>
