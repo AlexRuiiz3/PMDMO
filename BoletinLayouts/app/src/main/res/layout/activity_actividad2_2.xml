@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Actividad2Activity">
+    android:layout_height="match_parent">
 
 
     <RadioGroup
         android:id="@+id/radioGroupPiedraPapelTijera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:gravity="center">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/radioButtonPiedra"
@@ -47,51 +46,74 @@
         android:id="@+id/imagenPiedraPapelTijera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
         android:maxWidth="80dp"
         android:minHeight="80dp"
-        android:src="@drawable/imagenpapel"
-        android:adjustViewBounds="true"
-        android:layout_gravity="center"/>
+
+        android:src="@drawable/imagentijera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupPiedraPapelTijera" />
 
     <Button
         android:id="@+id/buttonConfirmarJugada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:padding="10dp"
-        android:text="@string/confirmar_jugada" />
+        android:text="@string/confirmar_jugada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagenPiedraPapelTijera" />
 
     <ImageView
         android:id="@+id/imagenPiedraPapelTijeraCPU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+
         android:adjustViewBounds="true"
         android:maxWidth="80dp"
         android:minHeight="80dp"
+        android:src="@drawable/imagentijera"
         android:visibility="invisible"
-        android:src="@drawable/imagentijera" />
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonConfirmarJugada" />
 
     <TextView
         android:id="@+id/textGanador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+
         android:gravity="center"
         android:text="@string/ganador"
         android:textColor="#040404"
         android:textSize="20sp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagenPiedraPapelTijeraCPU" />
 
     <Button
         android:id="@+id/buttonVolverAJugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:padding="10dp"
         android:text="@string/volver_a_jugar"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGanador" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

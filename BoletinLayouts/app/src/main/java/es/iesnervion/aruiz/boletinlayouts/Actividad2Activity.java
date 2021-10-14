@@ -16,18 +16,18 @@ public class Actividad2Activity extends AppCompatActivity implements View.OnClic
     private final String PAPEL = "Papel";
     private final String TIJERA = "Tijera";
 
-
     private String jugadaUsuario = "";
     private RadioGroup radioGroup;
     private Button buttonVolverJugar;
     private TextView textGanador;
     private ImageView imageJugador;
     private ImageView imageCPU;
+    private boolean partidaJugada = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividad2_1);
+        setContentView(R.layout.activity_actividad2_2);
 
         imageJugador = findViewById(R.id.imagenPiedraPapelTijera);
         imageCPU = findViewById(R.id.imagenPiedraPapelTijeraCPU);
@@ -51,15 +51,19 @@ public class Actividad2Activity extends AppCompatActivity implements View.OnClic
         switch(view.getId()){
 
             case R.id.buttonConfirmarJugada:
-                if (!jugadaUsuario.equals("")) {
-                    confirmarJugar();
+                if (!jugadaUsuario.equals("") && !partidaJugada) {
+                    comprobarGuardarGanador();
+
+                    //Se hacen visibles los siguientes valores al confirmar la jugada
+                    textGanador.setVisibility(View.VISIBLE);
+                    imageCPU.setVisibility(View.VISIBLE);
+                    buttonVolverJugar.setVisibility(View.VISIBLE);
                 }
             break;
 
             case R.id.buttonVolverAJugar:
                 resetearValores();
             break;
-
         }
     }
 
@@ -95,10 +99,11 @@ public class Actividad2Activity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private void confirmarJugar(){
+    private void comprobarGuardarGanador(){
         String[] opciones = {PIEDRA,PAPEL,TIJERA};
         String jugadaCPU = opciones[(int) (Math.random()*3)];
         int ganador = 0;
+        partidaJugada = true;
 
         if (jugadaCPU.equals(PIEDRA)){
             imageCPU.setImageResource(R.drawable.imagenpiedra);
@@ -136,13 +141,12 @@ public class Actividad2Activity extends AppCompatActivity implements View.OnClic
                 textGanador.setText(getString(R.string.ganador)+" Empate");
                 break;
         }
-        textGanador.setVisibility(View.VISIBLE);
-        imageCPU.setVisibility(View.VISIBLE);
-        buttonVolverJugar.setVisibility(View.VISIBLE);
+
     }
 
     private void resetearValores(){
         jugadaUsuario = "";
+        partidaJugada = false;
         radioGroup.clearCheck();
         imageJugador.setImageResource(R.drawable.imagentijera);
         textGanador.setVisibility(View.INVISIBLE);
