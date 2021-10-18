@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoletinLayouts">
         <activity
+            android:name=".ListViewActivity"
+            android:exported="true" />
+        <activity
             android:name=".Actividad1Activity"
             android:exported="false" />
         <activity
