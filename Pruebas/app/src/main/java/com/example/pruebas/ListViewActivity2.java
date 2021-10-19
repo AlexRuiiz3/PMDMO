@@ -1,6 +1,4 @@
-package es.iesnervion.aruiz.boletinlayouts;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.pruebas;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+import java.util.ArrayList;
+//Clase con vista personalizada
+public class ListViewActivity2 extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private TextView texto;
     private ListView listaElementos;
@@ -32,15 +32,17 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         valores.add("Ordenador5");
         valores.add("Ordenador6");
         valores.add("Ordenador7");
+        valores.add("Ordenador8");
+        valores.add("Ordenador9");
+        valores.add("Ordenador10");
+        valores.add("Ordenador11");
 
-
-        listaElementos.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,valores));
+        listaElementos.setAdapter(new ArrayAdapter(this,R.layout.viewpersonalizada,R.id.textViewPersonalizada,valores));
+        listaElementos.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    texto.setText(valores.get(position));
-
+        texto.setText(valores.get(position));
     }
 }
