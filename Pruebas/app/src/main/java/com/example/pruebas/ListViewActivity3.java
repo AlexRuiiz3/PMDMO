@@ -15,7 +15,7 @@ public class ListViewActivity3 extends AppCompatActivity implements AdapterView.
 
     private TextView texto;
     private ListView listaElementos;
-    private ArrayList<String> valores = new ArrayList<>();
+    private ArrayList<Persona> valores = new ArrayList<Persona>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,24 +25,20 @@ public class ListViewActivity3 extends AppCompatActivity implements AdapterView.
         texto = findViewById(R.id.textView);
         listaElementos = findViewById(R.id.listViewElementos);
 
-        valores.add("Estrella");
-        valores.add("Ordenador2");
-        valores.add("Ordenador3");
-        valores.add("Delete");
-        valores.add("Ordenador5");
-        valores.add("Flecha");
-        valores.add("Ordenador7");
-        valores.add("Ordenador8");
-        valores.add("Ordenador9");
-        valores.add("Ordenador10");
-        valores.add("Ordenador11");
-        valores.add("Estrella");
-        valores.add("Ordenador2");
-        valores.add("Ordenador3");
-        valores.add("Delete");
-        valores.add("Ordenador5");
-        valores.add("Flecha");
-        valores.add("Ordenador7");
+        valores.add(new Persona("Persona1",android.R.drawable.btn_star_big_on));
+        valores.add(new Persona("Persona2",android.R.drawable.arrow_up_float));
+        valores.add(new Persona("Persona3",0));
+        valores.add(new Persona("Persona4",android.R.drawable.arrow_up_float));
+        valores.add(new Persona("Persona3",0));
+        valores.add(new Persona("Persona6",0));
+        valores.add(new Persona("Persona1",android.R.drawable.arrow_up_float));
+        valores.add(new Persona("Persona8",0));
+        valores.add(new Persona("Persona9",0));
+        valores.add(new Persona("Persona2",0));
+        valores.add(new Persona("Persona3",android.R.drawable.ic_delete));
+        valores.add(new Persona("Persona12",0));
+        valores.add(new Persona("Persona13",android.R.drawable.ic_delete));
+        valores.add(new Persona("Persona14",0));
 
         listaElementos.setAdapter(new ListViewAdapter(this,R.layout.viewpersonalizada,R.id.textViewPersonalizada,valores));
         listaElementos.setOnItemClickListener(this);
@@ -51,6 +47,6 @@ public class ListViewActivity3 extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        texto.setText(valores.get(position));
+        texto.setText(valores.get(position).toString());
     }
 }
