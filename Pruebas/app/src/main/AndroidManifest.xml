@@ -17,6 +17,12 @@
             android:exported="false" />
         <activity
             android:name=".ListViewActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".ListViewHolder"
+            android:exported="false" />
+        <activity
+            android:name=".ListViewHolder2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
