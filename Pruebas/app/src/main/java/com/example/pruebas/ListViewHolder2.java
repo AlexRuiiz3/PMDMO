@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//ListViewHolder lista heterogenea
 public class ListViewHolder2 extends AppCompatActivity {
 
     private ListView listaElementos;
@@ -59,6 +59,22 @@ public class ListViewHolder2 extends AppCompatActivity {
         public ListAdapter( Context context, int resource, List<T> objects) {
             super(context, resource, objects);
         }
+        @Override
+        public int getItemViewType(int position) {
+            int numero;
+
+            if (position % 2 == 0) {
+                numero = 1;
+            } else {
+                numero = 0;
+            }
+            return numero;
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return 2;//Numero distinto de view que hay en la lista
+        }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -70,22 +86,20 @@ public class ListViewHolder2 extends AppCompatActivity {
 
             if(viewRow == null) {
                 LayoutInflater inflater = getLayoutInflater();
-                if (position % 2 == 0) {
-                    viewRow = inflater.inflate(R.layout.viewpersonalizada2,parent,false);
 
-                    textView = viewRow.findViewById(R.id.textViewPersonalizada2);
-                    imageView = viewRow.findViewById(R.id.imageView2);
-
-                } else {
+                if( getItemViewType(position) == 0 ){
                     viewRow = inflater.inflate(R.layout.viewpersonalizada,parent,false);
-
                     textView = viewRow.findViewById(R.id.textViewPersonalizada);
                     imageView = viewRow.findViewById(R.id.imageView);
+                }else{
+                    viewRow = inflater.inflate(R.layout.viewpersonalizada2,parent,false);
+                    textView = viewRow.findViewById(R.id.textViewPersonalizada2);
+                    imageView = viewRow.findViewById(R.id.imageView2);
                 }
                 holder = new ViewHolder(textView, imageView);
                 viewRow.setTag(holder);
             }else{
-                holder = (ViewHolder) viewRow.getTag();//Aqui esta el error
+                holder = (ViewHolder) viewRow.getTag();
             }
 
             holder.getTextView().setText(valores.get(position));
