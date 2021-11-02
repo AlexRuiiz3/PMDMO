@@ -55,7 +55,6 @@ public class ListViewHolder2 extends AppCompatActivity {
 
     class ListAdapter<T> extends ArrayAdapter<T>{
 
-
         public ListAdapter( Context context, int resource, List<T> objects) {
             super(context, resource, objects);
         }
@@ -111,7 +110,6 @@ public class ListViewHolder2 extends AppCompatActivity {
             }else{
                 holder.getImageView().setImageResource(android.R.drawable.ic_input_add);
             }
-
             return viewRow;
         }
     }
