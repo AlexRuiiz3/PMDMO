@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ExamenNov</string>
+    <string name="motos">Motos</string>
+    <string name="coches">Coches</string>
+    <string name="imagen_moto_izquierda">Imagen Moto Izquierda</string>
+    <string name="imagen_moto_derecha">Imagen Moto Derecha</string>
+    <string name="imagen_moto_doble">Imagen Moto Doble</string>
+    <string name="imagen_coche_doble">Imagen Coche Doble</string>
+    <string name="imagen_coche_derecha">Imagen Coche Derecha</string>
+    <string name="imagen_coche_izquierda">Imagen Coche Izquierda</string>
+</resources>
