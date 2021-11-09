@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pruebas">
         <activity
+            android:name=".ListViewHolder2"
+            android:exported="true" />
+        <activity
             android:name=".ListViewActivity"
             android:exported="false" />
         <activity
@@ -22,7 +25,7 @@
             android:name=".ListViewHolder"
             android:exported="false" />
         <activity
-            android:name=".ListViewHolder2"
+            android:name=".CicloVidaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
