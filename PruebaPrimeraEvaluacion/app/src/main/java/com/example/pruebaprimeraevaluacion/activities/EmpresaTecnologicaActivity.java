@@ -1,8 +1,6 @@
 package com.example.pruebaprimeraevaluacion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -22,13 +20,14 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
 
     private ImageView imageViewLogo;
     private TextView textViewNombre;
-    private TextView textViewTelefono;
+    private EditText editTextViewTelefono;
     private TextView textViewWeb;
     private TextView textViewLocalizacion;
     private TextView textViewEmail;
-    private TextView textViewDireccion;
+    private EditText editTextViewDireccion;
     private Button buttonGuardarCambios;
     private Button buttonPersonasContacto;
+    private EmpresaTecnologicaActivityVM viewModelEmpresaTecnologica;
 
     private EmpresaTecnologica empresaTecnologica;
     @Override
@@ -38,7 +37,7 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
 
         imageViewLogo = findViewById(R.id.imageLogoActivityEmpresaTecnologica);
         textViewNombre = findViewById(R.id.textNombreActivityEmpresaTecnologica);
-        textViewTelefono = findViewById(R.id.textTelefonoActivityEmpresaTecnologica);
+        editTextViewTelefono = findViewById(R.id.editTextTelefonoActivityEmpresaTecnologica);
 
         textViewWeb = findViewById(R.id.textWebActivityEmpresaTecnologica);
         textViewWeb.setOnClickListener(this);
@@ -49,7 +48,7 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
         textViewEmail = findViewById(R.id.textViewEmailActivityEmpresaTecnologica);
         textViewEmail.setOnClickListener(this);
 
-        textViewDireccion = findViewById(R.id.textViewDireccionActivityEmpresaTecnologica);
+        editTextViewDireccion = findViewById(R.id.editTextViewDireccionActivityEmpresaTecnologica);
 
         buttonPersonasContacto = findViewById(R.id.buttonPersonasContactoActivityEmpresaTecnologica);
         buttonPersonasContacto.setOnClickListener(this);
@@ -59,15 +58,21 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
         empresaTecnologica = (EmpresaTecnologica) getIntent().getSerializableExtra("EmpresaTecnologica");
         imageViewLogo.setImageResource(empresaTecnologica.getLogo());
         textViewNombre.setText(empresaTecnologica.getNombre());
-        textViewTelefono.setText(empresaTecnologica.getTelefono());
+        editTextViewTelefono.setText(empresaTecnologica.getTelefono());
         textViewWeb.setText(empresaTecnologica.getWeb());
         textViewLocalizacion.setText(empresaTecnologica.getLocalizacion());
         textViewEmail.setText(empresaTecnologica.getEmail());
-        textViewDireccion.setText(empresaTecnologica.getDireccion());
+        editTextViewDireccion.setText(empresaTecnologica.getDireccion());
 
-        //EmpresaTecnologicaActivityVM viewModelEmpresaTecnologica = new ViewModelProvider(this).get(EmpresaTecnologicaActivityVM.class);
-        //viewModelEmpresaTecnologica.getNombre().observe(this,this::onTextChanged);
+        viewModelEmpresaTecnologica = new ViewModelProvider(this).get(EmpresaTecnologicaActivityVM.class);
+        viewModelEmpresaTecnologica.getEmpresa().observe(this,this::onTextChanged);
     }
+
+    private void onTextChanged(EmpresaTecnologica empresa) {
+        editTextViewDireccion.setText(empresa.getDireccion());
+        editTextViewTelefono.setText(empresa.getTelefono());
+    }
+
     @Override
     public void onClick(View view) {
         Intent intent = null;
@@ -85,7 +90,8 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
                 break;
 
             case R.id.textLocalizacionActivityEmpresaTecnologica:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.streetview:cbll="+textViewLocalizacion.getText().toString()));
+                String[] partesLocalizacion = textViewLocalizacion.getText().toString().split(",");
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q="+partesLocalizacion[0]+","+partesLocalizacion[1]+"(Label)"));
                 intent.setPackage("com.google.android.apps.maps");
                 break;
 
@@ -98,7 +104,9 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
                 break;
 
             case R.id.buttonGuardarCambios:
-
+                empresaTecnologica.setDireccion(editTextViewDireccion.getText().toString());
+                empresaTecnologica.setDireccion(editTextViewDireccion.getText().toString());
+                viewModelEmpresaTecnologica.getEmpresa().postValue(empresaTecnologica);
                 break;
         }
         if(intent != null){

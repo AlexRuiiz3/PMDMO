@@ -2,7 +2,6 @@ package com.example.pruebaprimeraevaluacion.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,9 +23,7 @@ import com.example.pruebaprimeraevaluacion.clasesBasicas.EmpresaNoTecnologica;
 import com.example.pruebaprimeraevaluacion.clasesBasicas.EmpresaTecnologica;
 import com.example.pruebaprimeraevaluacion.clasesBasicas.Persona;
 
-
 import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity implements TextWatcher,AdapterView.OnItemClickListener {
 
@@ -86,10 +83,10 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
 
     }
 
-    class ListViewEmpresasAdapter<T> extends BaseAdapter {
-        private ArrayList<T> empresasListView;
+    class ListViewEmpresasAdapter extends BaseAdapter {
+        private ArrayList<Empresa> empresasListView;
 
-        public ListViewEmpresasAdapter(ArrayList<T> empresasListView) {
+        public ListViewEmpresasAdapter(ArrayList<Empresa> empresasListView) {
             this.empresasListView = empresasListView;
         }
 
@@ -99,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         }
 
         @Override
-        public T getItem(int position) {
-            return (T) empresasListView.get(position);
+        public Object getItem(int position) {
+            return empresasListView.get(position);
         }
         @Override
         public long getItemId(int position) {
@@ -235,15 +232,20 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         }
     }
 
+    //Adapter del autocompleteTex
     class AutoCompleteTexAdapter<T> extends ArrayAdapter<T>{
 
         private ArrayList<Empresa> empresas, tempEmpresas, empresasFiltradas;
+        //empresas es la lista de empresas que se van modificando y se muestra
+        //temEmpresa es la lista completa de empresas, no se modificara
+        //EmpresasFiltrada es donde se guardan las empresas que se vayan encontrando, en funcion de lo que se escriba
+
 
         public AutoCompleteTexAdapter(Context context,ArrayList<Empresa> empresas){
             super(context,0);
             this.empresas = empresas;
             tempEmpresas = new ArrayList<>(empresas);
-            empresasFiltradas = new ArrayList<>();
+            //empresasFiltradas = new ArrayList<>();
         }
 
         public Filter getFilter(){
@@ -258,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
                 EmpresaNoTecnologica empresaNoTecnologica;
                 if(charSequence != null){
                     filterResults = new FilterResults();
-                    empresasFiltradas.clear();
+                    empresas.clear();
                     for(Empresa empresa : tempEmpresas){
                         if(empresa instanceof EmpresaTecnologica){
                            empresaTecnologica = (EmpresaTecnologica) empresa;
@@ -266,19 +268,19 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
                               || empresaTecnologica.getLocalizacion().toLowerCase().contains(charSequence.toString().toLowerCase())
                               || empresaTecnologica.getWeb().toLowerCase().contains(charSequence.toString().toLowerCase())
                               || empresaTecnologica.getEmail().toLowerCase().contains(charSequence.toString().toLowerCase())){
-                               empresasFiltradas.add(empresa);
+                               empresas.add(empresa);
                            }
                         }else if(empresa instanceof EmpresaNoTecnologica){
                             empresaNoTecnologica = (EmpresaNoTecnologica) empresa;
                             if(empresaNoTecnologica.getNombre().toLowerCase().contains(charSequence.toString().toLowerCase())
                                     || empresaNoTecnologica.getActividad().toLowerCase().contains(charSequence.toString().toLowerCase())
                                     || empresaNoTecnologica.getCnae().toLowerCase().contains(charSequence.toString().toLowerCase())){
-                                empresasFiltradas.add(empresa);
+                                empresas.add(empresa);
                             }
                         }
                     }//Fin for
-                    filterResults.values = empresasFiltradas;
-                    filterResults.count = empresasFiltradas.size();
+                    filterResults.values = empresas;
+                    filterResults.count = empresas.size();
                 }
                 return filterResults;
             }
