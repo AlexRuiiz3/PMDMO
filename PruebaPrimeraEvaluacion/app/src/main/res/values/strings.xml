@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PruebaPrimeraEvaluacion</string>
+    <string name="nombre_empresa">Nombre Empresa</string>
+    <string name="actividad_empresa">Agricultura(Nº 103)</string>
+    <string name="correoelectronico">CorreoElectronico</string>
+    <string name="localizacion">Localizacion</string>
+    <string name="personas_de_contacto">Personas de contacto</string>
+    <string name="telefono">Telefono:</string>
+    <string name="direccion">Direccion:</string>
+    <string name="email">Email:</string>
+    <string name="web">Web:</string>
+    <string name="nombre">Nombre:</string>
 </resources>

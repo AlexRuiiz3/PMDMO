@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PruebaPrimeraEvaluacion">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.PersonasContactoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EmpresaTecnologicaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
