@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,9 +26,12 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
     private TextView textViewLocalizacion;
     private TextView textViewEmail;
     private EditText editTextViewDireccion;
-    private Button buttonGuardarCambios;
+    private ImageButton buttonGuardarCambios;
     private Button buttonPersonasContacto;
     private EmpresaTecnologicaActivityVM viewModelEmpresaTecnologica;
+    private TextView textViewResultadosGuardados;
+    private TextView textViewResultadosDireccion;
+    private TextView textViewResultadosTelefono;
 
     private EmpresaTecnologica empresaTecnologica;
     @Override
@@ -39,22 +43,33 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
         textViewNombre = findViewById(R.id.textNombreActivityEmpresaTecnologica);
         editTextViewTelefono = findViewById(R.id.editTextTelefonoActivityEmpresaTecnologica);
 
+        //TextView Resultados
+        textViewResultadosGuardados = findViewById(R.id.textViewResultadosGuardados);
+        textViewResultadosDireccion = findViewById(R.id.textViewResultadoDireccion);
+        textViewResultadosTelefono = findViewById(R.id.textViewResultadoTelefono);
+
+        //Web
         textViewWeb = findViewById(R.id.textWebActivityEmpresaTecnologica);
         textViewWeb.setOnClickListener(this);
 
+        //Localizacion
         textViewLocalizacion = findViewById(R.id.textLocalizacionActivityEmpresaTecnologica);
         textViewLocalizacion.setOnClickListener(this);
 
+        //Email
         textViewEmail = findViewById(R.id.textViewEmailActivityEmpresaTecnologica);
         textViewEmail.setOnClickListener(this);
 
+        //Direccion
         editTextViewDireccion = findViewById(R.id.editTextViewDireccionActivityEmpresaTecnologica);
 
+        //Botones
         buttonPersonasContacto = findViewById(R.id.buttonPersonasContactoActivityEmpresaTecnologica);
         buttonPersonasContacto.setOnClickListener(this);
         buttonGuardarCambios = findViewById(R.id.buttonGuardarCambios);
         buttonGuardarCambios.setOnClickListener(this);
 
+        //Inicializacion contenido componentes
         empresaTecnologica = (EmpresaTecnologica) getIntent().getSerializableExtra("EmpresaTecnologica");
         imageViewLogo.setImageResource(empresaTecnologica.getLogo());
         textViewNombre.setText(empresaTecnologica.getNombre());
@@ -64,6 +79,7 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
         textViewEmail.setText(empresaTecnologica.getEmail());
         editTextViewDireccion.setText(empresaTecnologica.getDireccion());
 
+        //ViewModel
         viewModelEmpresaTecnologica = new ViewModelProvider(this).get(EmpresaTecnologicaActivityVM.class);
         viewModelEmpresaTecnologica.getEmpresa().observe(this,this::onTextChanged);
     }
@@ -96,7 +112,7 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
                 break;
 
             case R.id.textViewEmailActivityEmpresaTecnologica:
-                Intent intentEmail = new Intent(Intent.ACTION_SENDTO);
+                Intent intentEmail = new Intent(Intent.ACTION_SEND);
                 intentEmail.putExtra(Intent.EXTRA_EMAIL,textViewEmail.getText().toString());
                 intentEmail.setType("message/rfc822");
 
@@ -105,8 +121,13 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
 
             case R.id.buttonGuardarCambios:
                 empresaTecnologica.setDireccion(editTextViewDireccion.getText().toString());
-                empresaTecnologica.setDireccion(editTextViewDireccion.getText().toString());
+                empresaTecnologica.setTelefono(editTextViewTelefono.getText().toString());
                 viewModelEmpresaTecnologica.getEmpresa().postValue(empresaTecnologica);
+                //Resultados
+                textViewResultadosGuardados.setText(R.string.resultados_guardados);
+                textViewResultadosDireccion.setText(R.string.direccion+" " +editTextViewDireccion.getText().toString());
+                textViewResultadosTelefono.setText(R.string.telefono+" " +editTextViewTelefono.getText().toString());
+
                 break;
         }
         if(intent != null){

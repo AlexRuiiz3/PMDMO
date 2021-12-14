@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         autoCompleteText = findViewById(R.id.autoCompleteTextView);
         autoCompleteText.addTextChangedListener(this);
         autoCompleteText.setAdapter(new AutoCompleteTexAdapter(this,listaEmpresas));
-        autoCompleteText.setOnItemClickListener(this);
     }
 
     @Override
@@ -83,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
 
     }
 
+    //Adapter TexView
     class ListViewEmpresasAdapter extends BaseAdapter {
         private ArrayList<Empresa> empresasListView;
 
@@ -235,17 +235,11 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
     //Adapter del autocompleteTex
     class AutoCompleteTexAdapter<T> extends ArrayAdapter<T>{
 
-        private ArrayList<Empresa> empresas, tempEmpresas, empresasFiltradas;
-        //empresas es la lista de empresas que se van modificando y se muestra
-        //temEmpresa es la lista completa de empresas, no se modificara
-        //EmpresasFiltrada es donde se guardan las empresas que se vayan encontrando, en funcion de lo que se escriba
-
+        private ArrayList<Empresa> empresasAux;
 
         public AutoCompleteTexAdapter(Context context,ArrayList<Empresa> empresas){
             super(context,0);
-            this.empresas = empresas;
-            tempEmpresas = new ArrayList<>(empresas);
-            //empresasFiltradas = new ArrayList<>();
+            empresasAux = new ArrayList<>(empresas);
         }
 
         public Filter getFilter(){
@@ -253,6 +247,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         }
         Filter filter = new Filter(){
 
+            //Metodo para filtrar la lista de empresas segun los caracteres ingresados
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 FilterResults filterResults = null;
@@ -260,43 +255,39 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
                 EmpresaNoTecnologica empresaNoTecnologica;
                 if(charSequence != null){
                     filterResults = new FilterResults();
-                    empresas.clear();
-                    for(Empresa empresa : tempEmpresas){
+                    listaEmpresas.clear();
+                    for(Empresa empresa : empresasAux){
                         if(empresa instanceof EmpresaTecnologica){
                            empresaTecnologica = (EmpresaTecnologica) empresa;
                            if(empresaTecnologica.getNombre().toLowerCase().contains(charSequence.toString().toLowerCase())
                               || empresaTecnologica.getLocalizacion().toLowerCase().contains(charSequence.toString().toLowerCase())
                               || empresaTecnologica.getWeb().toLowerCase().contains(charSequence.toString().toLowerCase())
                               || empresaTecnologica.getEmail().toLowerCase().contains(charSequence.toString().toLowerCase())){
-                               empresas.add(empresa);
+                               listaEmpresas.add(empresa);
                            }
                         }else if(empresa instanceof EmpresaNoTecnologica){
                             empresaNoTecnologica = (EmpresaNoTecnologica) empresa;
                             if(empresaNoTecnologica.getNombre().toLowerCase().contains(charSequence.toString().toLowerCase())
                                     || empresaNoTecnologica.getActividad().toLowerCase().contains(charSequence.toString().toLowerCase())
                                     || empresaNoTecnologica.getCnae().toLowerCase().contains(charSequence.toString().toLowerCase())){
-                                empresas.add(empresa);
+                                listaEmpresas.add(empresa);
                             }
                         }
                     }//Fin for
-                    filterResults.values = empresas;
-                    filterResults.count = empresas.size();
+                    filterResults.values = listaEmpresas;
+                    filterResults.count = listaEmpresas.size();
                 }
                 return filterResults;
             }
 
+            //Metodo para publicar/Actualizar la lista.Para que se vean los cambios en el listView se le asigna otra vez un adapter, pero esta vez con la lista de empresas que se hayan filtrado
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                if(filterResults != null){
-                    ArrayList<Empresa> empresasFiltadrasAux = (ArrayList<Empresa>) filterResults.values;
-                    if(filterResults.count > 0){ //Si la lista filtrada tiene elementos
-                        empresas.clear();
-                        empresas.addAll(empresasFiltadrasAux);
-                    }
-                }else{ //Cuando filterResults sea null, sera cuando no se ingrese ningun caracter, entonces modifica la lista de empresas con todas las empresas
-                    empresas = new ArrayList<>(tempEmpresas);
+                if(filterResults == null){//Cuando filterResults sea null, sera cuando no se ingrese ningun caracter, entonces modifica la lista de empresas con todas las empresas
+                    listaEmpresas = new ArrayList<>(empresasAux);
                 }
-                listViewEmpresas.setAdapter(new ListViewEmpresasAdapter(empresas));
+                //Cuando no sea filterResults null en performFiltering la listaEmpresas entra como minimo una empresa dentro
+                listViewEmpresas.setAdapter(new ListViewEmpresasAdapter(listaEmpresas));
             }
         };
     }

@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:adjustViewBounds="true"
-        android:maxWidth="70dp"
-        android:maxHeight="70dp"
+        android:maxWidth="80dp"
+        android:maxHeight="80dp"
         app:layout_constraintBottom_toBottomOf="@id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
-                tools:text="@string/nombre_empresa" />
+                tools:text="@string/empresa" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +62,7 @@
                 android:adjustViewBounds="true"
                 android:maxWidth="15dp"
                 android:maxHeight="15dp"
-                app:srcCompat="@drawable/icono_empresa" />
+                app:srcCompat="@drawable/icono_web" />
 
             <TextView
                 android:id="@+id/textViewWebTecnologica"

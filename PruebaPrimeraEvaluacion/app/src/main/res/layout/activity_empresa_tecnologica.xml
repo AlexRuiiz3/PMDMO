@@ -18,140 +18,191 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/logo_ayesa" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <TextView
+        android:id="@+id/textViewNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:text="@string/nombre"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageLogoActivityEmpresaTecnologica">
+        app:layout_constraintTop_toBottomOf="@+id/imageLogoActivityEmpresaTecnologica" />
 
-        <TextView
-            android:id="@+id/textViewNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/textViewWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/web"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
 
-        <TextView
-            android:id="@+id/textViewWeb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/web"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/email"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeb" />
 
-        <TextView
-            android:id="@+id/textViewEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/email"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/textViewLocalizacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/localizacion"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
-        <TextView
-            android:id="@+id/textViewLocalizacion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/localizacion"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/textViewTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/direccion"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocalizacion" />
 
-        <TextView
-            android:id="@+id/textViewDireccion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/direccion"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/textViewDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/telefono"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTelefono" />
 
-        <TextView
-            android:id="@+id/textViewTelefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:text="@string/telefono"
-            android:textSize="15sp" />
+    <EditText
+        android:id="@+id/editTextViewDireccionActivityEmpresaTecnologica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="150dp"
+        android:layout_marginStart="24dp"
+        android:textSize="13sp"
+        android:maxLines="2"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTelefono"
+        app:layout_constraintStart_toEndOf="@+id/textViewDireccion"
+        app:layout_constraintTop_toTopOf="@+id/textViewTelefono"
+        app:layout_constraintVertical_bias="0.466"
+        tools:text="Calle ramol y cajal"
+        />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textViewEmailActivityEmpresaTecnologica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewEmail"
+        app:layout_constraintStart_toEndOf="@+id/textViewEmail"
+        app:layout_constraintTop_toTopOf="@+id/textViewEmail"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="ayesa@gmail.com" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <TextView
+        android:id="@+id/textNombreActivityEmpresaTecnologica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNombre"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombre"
+        app:layout_constraintTop_toTopOf="@+id/textViewNombre"
+        tools:text="Accenture" />
+
+    <EditText
+        android:id="@+id/editTextTelefonoActivityEmpresaTecnologica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="150dp"
+        android:layout_marginStart="24dp"
+        android:textSize="13sp"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewDireccion"
+        app:layout_constraintStart_toEndOf="@+id/textViewDireccion"
+        app:layout_constraintTop_toTopOf="@+id/textViewDireccion"
+        app:layout_constraintVertical_bias="0.533"
+        tools:text="987456123" />
+
+    <TextView
+        android:id="@+id/textLocalizacionActivityEmpresaTecnologica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/linearLayout2"
-        app:layout_constraintTop_toTopOf="@id/linearLayout2">
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewLocalizacion"
+        app:layout_constraintStart_toEndOf="@+id/textViewLocalizacion"
+        app:layout_constraintTop_toTopOf="@+id/textViewLocalizacion"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="@string/localizacion" />
 
-        <TextView
-            android:id="@+id/textNombreActivityEmpresaTecnologica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            tools:text="Accenture" />
-
-        <TextView
-            android:id="@+id/textWebActivityEmpresaTecnologica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="13sp"
-            tools:text="@string/web" />
-
-        <TextView
-            android:id="@+id/textViewEmailActivityEmpresaTecnologica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="13sp"
-            tools:text="ayesa@gmail.com" />
-
-        <TextView
-            android:id="@+id/textLocalizacionActivityEmpresaTecnologica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="13sp"
-            tools:text="@string/localizacion" />
-
-        <EditText
-            android:id="@+id/editTextViewDireccionActivityEmpresaTecnologica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="15sp"
-            tools:text="Calle ramol y cajal" />
-
-        <EditText
-            android:id="@+id/editTextTelefonoActivityEmpresaTecnologica"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="15sp"
-            tools:text="987456123" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textWebActivityEmpresaTecnologica"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:textSize="13sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewWeb"
+        app:layout_constraintStart_toEndOf="@+id/textViewWeb"
+        app:layout_constraintTop_toTopOf="@+id/textViewWeb"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@string/web" />
 
     <Button
+        android:id="@+id/buttonPersonasContactoActivityEmpresaTecnologica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="108dp"
+        android:background="@color/gris_claro"
+        android:minHeight="60dp"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:text="@string/personas_de_contacto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTelefonoActivityEmpresaTecnologica" />
+
+    <ImageButton
         android:id="@+id/buttonGuardarCambios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Guardar Cambios"
-        app:layout_constraintEnd_toEndOf="@+id/buttonPersonasContactoActivityEmpresaTecnologica"
-        app:layout_constraintStart_toStartOf="@id/buttonPersonasContactoActivityEmpresaTecnologica"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/buttonPersonasContactoActivityEmpresaTecnologica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/buttonPersonasContactoActivityEmpresaTecnologica"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
-    <Button
-        android:id="@id/buttonPersonasContactoActivityEmpresaTecnologica"
+    <TextView
+        android:id="@+id/textViewResultadosGuardados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:minHeight="60dp"
-        android:text="@string/personas_de_contacto"
+        android:layout_marginTop="8dp"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGuardarCambios" />
+        app:layout_constraintTop_toBottomOf="@id/buttonPersonasContactoActivityEmpresaTecnologica" />
+
+    <TextView
+        android:id="@+id/textViewResultadoDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultadosGuardados" />
+
+    <TextView
+        android:id="@+id/textViewResultadoTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultadoDireccion" />
 </androidx.constraintlayout.widget.ConstraintLayout>
