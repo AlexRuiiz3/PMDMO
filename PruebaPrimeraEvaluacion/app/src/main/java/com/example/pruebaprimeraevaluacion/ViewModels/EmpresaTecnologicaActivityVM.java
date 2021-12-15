@@ -13,12 +13,10 @@ public class EmpresaTecnologicaActivityVM extends ViewModel {
 
     private MutableLiveData<EmpresaTecnologica> mldEmpresa;
 
-
     public MutableLiveData<EmpresaTecnologica> getEmpresa(){
         if(mldEmpresa == null){
-            mldEmpresa = new MutableLiveData<EmpresaTecnologica>();
+            mldEmpresa = new MutableLiveData<>();
         }
         return mldEmpresa;
     }
-
 }

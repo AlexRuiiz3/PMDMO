@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:adjustViewBounds="true"
-        android:maxWidth="80dp"
-        android:maxHeight="80dp"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
         app:layout_constraintBottom_toBottomOf="@id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +26,6 @@
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/imageViewLogoTecnologica"
         app:layout_constraintTop_toTopOf="parent">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +45,7 @@
                 android:id="@+id/textViewNombreTecnologica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 tools:text="@string/empresa" />
         </LinearLayout>
 
@@ -68,7 +67,7 @@
                 android:id="@+id/textViewWebTecnologica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 tools:text="@string/web" />
         </LinearLayout>
 
@@ -90,7 +89,7 @@
                 android:id="@+id/textViewLocalizacionTecnologica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 tools:text="@string/localizacion" />
         </LinearLayout>
 
@@ -112,7 +111,7 @@
                 android:id="@+id/textViewEmailTecnologica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 tools:text="@string/correoelectronico" />
         </LinearLayout>
 

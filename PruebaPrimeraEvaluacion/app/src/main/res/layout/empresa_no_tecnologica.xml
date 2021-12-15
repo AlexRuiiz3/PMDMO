@@ -18,8 +18,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_marginStart="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +46,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:textSize="10dp"
-                tools:text="@string/nombre_empresa" />
+                android:textSize="11sp"
+                tools:text="@string/empresa" />
         </LinearLayout>
 
         <LinearLayout
@@ -68,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:textSize="10dp"
+                android:textSize="11sp"
                 tools:text="@string/actividad_empresa" />
         </LinearLayout>
     </LinearLayout>

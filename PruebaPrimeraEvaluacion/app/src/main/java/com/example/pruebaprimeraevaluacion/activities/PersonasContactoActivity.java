@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class PersonasContactoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner spinnerPersonas;
     private TextView textViewTelefono;
     private TextView textViewCargo;
     private TextView textViewEmail;
@@ -32,24 +31,34 @@ public class PersonasContactoActivity extends AppCompatActivity implements Adapt
         textViewCargo = findViewById(R.id.textViewCargoPersona);
         textViewEmail = findViewById(R.id.textViewEmailPersona);
 
+        //Se obtienen las personas que vienen de otra actividad
         ArrayList<Persona> listaPersonas = (ArrayList<Persona>) getIntent().getSerializableExtra("ListPersonasContacto");
 
-        spinnerPersonas = findViewById(R.id.spinnerPersonasContacto);
+        Spinner spinnerPersonas = findViewById(R.id.spinnerPersonasContacto);
 
         SpinnerAdapter adapter = new SpinnerAdapter(listaPersonas);
         spinnerPersonas.setAdapter(adapter);
         spinnerPersonas.setOnItemSelectedListener(this);
     }
 
+    /*
+     * Cabecera:  public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l)
+     * Comentario: Este metodo se encarga de realizar una tarea cuando un elemento es seleccionado.
+     *             En este caso al seleccionar un elemento de un spinner se modificara el texto de un
+     *             texView con los datos de un objeto de tipo Persona.
+     * Entradas: AdapterView<?> adapterView, View view, int position, long l
+     * Salidas: Ninguna
+     * Precondiciones: Ninguna
+     * Postcondicones: Se modificara el texto de varios texView con los valores de algunos atributos de
+     *                 un objeto Persona seleccionado.
+     */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-        if(adapterView != null) {
-            Persona persona = (Persona) adapterView.getAdapter().getItem(position);
+        Persona persona = (Persona) adapterView.getAdapter().getItem(position);
 
-            textViewTelefono.setText(persona.getTelefono());
-            textViewCargo.setText(persona.getCargo());
-            textViewEmail.setText(persona.getEmail());
-        }
+        textViewTelefono.setText(persona.getTelefono());
+        textViewCargo.setText(persona.getCargo());
+        textViewEmail.setText(persona.getEmail());
     }
 
     @Override
@@ -57,6 +66,8 @@ public class PersonasContactoActivity extends AppCompatActivity implements Adapt
 
     }
 
+
+    //Adapter del spinner
     class SpinnerAdapter extends BaseAdapter{
 
         private ArrayList<Persona> listaPersonas;
@@ -101,7 +112,7 @@ public class PersonasContactoActivity extends AppCompatActivity implements Adapt
             return viewRow;
         }
     }
-
+    //ViewHolder usado en el spinner
     class ViewHolder{
         private TextView textViewNombre;
         private TextView textViewApellidos;

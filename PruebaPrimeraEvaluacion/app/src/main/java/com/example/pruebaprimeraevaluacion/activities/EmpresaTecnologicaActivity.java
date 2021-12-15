@@ -89,6 +89,15 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
         editTextViewTelefono.setText(empresa.getTelefono());
     }
 
+    /*
+     * Cabecera: public void onClick(View view)
+     * Comentario: Este metodo se encarga de comprobar que elemento al que se le puede hacer click
+     *             hacido clicado y realiza la funcion que corresponda con el boton pulsado.
+     * Entradas: View view
+     * Salidas: Ninguna
+     * Precondiciones: view no puede estar a null, sino se producira una excepcion
+     * Postcondicones: Se reazalira la tarea que esta asignada al elemento clicable.
+     */
     @Override
     public void onClick(View view) {
         Intent intent = null;
@@ -106,7 +115,7 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
                 break;
 
             case R.id.textLocalizacionActivityEmpresaTecnologica:
-                String[] partesLocalizacion = textViewLocalizacion.getText().toString().split(",");
+                String[] partesLocalizacion = textViewLocalizacion.getText().toString().split(",");//En la localizacion esta tanto la latitud como la altitud y como estan separadas por una coma el metodo split las separa cuando encuentra una coma.
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q="+partesLocalizacion[0]+","+partesLocalizacion[1]+"(Label)"));
                 intent.setPackage("com.google.android.apps.maps");
                 break;
@@ -125,9 +134,8 @@ public class EmpresaTecnologicaActivity extends AppCompatActivity implements Vie
                 viewModelEmpresaTecnologica.getEmpresa().postValue(empresaTecnologica);
                 //Resultados
                 textViewResultadosGuardados.setText(R.string.resultados_guardados);
-                textViewResultadosDireccion.setText(R.string.direccion+" " +editTextViewDireccion.getText().toString());
-                textViewResultadosTelefono.setText(R.string.telefono+" " +editTextViewTelefono.getText().toString());
-
+                textViewResultadosDireccion.setText(getString(R.string.direccion)+" " +editTextViewDireccion.getText().toString());
+                textViewResultadosTelefono.setText(getString(R.string.telefono)+" " +editTextViewTelefono.getText().toString());
                 break;
         }
         if(intent != null){

@@ -36,17 +36,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Persona> personasContacto = new ArrayList<>();
-        personasContacto.add(new Persona("Juan","Torres","987456123","Becario","tubecariofavorito@gmail.com"));
-        personasContacto.add(new Persona("Ana","Lopez","987456123","Limpiador","notengoCorreo@gmail.com"));
-        personasContacto.add(new Persona("Carlos","Rodriguez","987456123","Jefe","ensalada@gmail.com"));
-
-        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_ayesa,"Ayesa","https://www.ayesa.com/es/","37.405670254372204, -6.00576255836253","ayesa@gmail.com","Calle Ayesa Nº12","987451234",personasContacto));
-        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_accenture,"Accenture","https://www.accenture.com/es-es","37.40925192610155, -6.0051052","accenture@gmail.com","Calle Accenture Nº10","987451234",personasContacto));
-        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_deloitte,"Deloitte","https://www2.deloitte.com/es/es.html","37.39219427031523, -6.010424399999999","deloitte@gmail.com","Direccion Deloitte Nº21","987451234",personasContacto));
-        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_adidas,"Adidas","Ropa","152"));
-        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_cruzcampo,"Cruzcampo","Alimentacion","829"));
-        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_apple,"Apple","Dispositivos moviles","478"));
+        llenarListaEmpresas();
 
         listViewEmpresas = findViewById(R.id.listViewListaEmpresas);
         listViewEmpresas.setAdapter(new ListViewEmpresasAdapter(listaEmpresas));
@@ -57,6 +47,42 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         autoCompleteText.setAdapter(new AutoCompleteTexAdapter(this,listaEmpresas));
     }
 
+    /*
+     * Cabecera: private void llenarListaEmpresas()
+     * Comentario: Este metodo se encarga de añadir a la lista de objetos empresa un cierto numero de objetos empresa.
+     * Entradas: Ninguna
+     * Salidas: Ninguna
+     * Precondiciones: Ninguna
+     * Postcondicones: La lista de objetos empresa contendra un cierto numeros objetos empresa.
+     */
+    private void llenarListaEmpresas(){
+        ArrayList<Persona> personasContacto = new ArrayList<>();
+        personasContacto.add(new Persona("Juan","Torres","987456123","Becario","tubecariofavorito@gmail.com"));
+        personasContacto.add(new Persona("Ana","Lopez","987456123","Limpiador","notengoCorreo@gmail.com"));
+        personasContacto.add(new Persona("Carlos","Rodriguez","987456123","Jefe","ensalada@gmail.com"));
+        personasContacto.add(new Persona("Juan2","Torres","987456123","Becario","tubecariofavorito@gmail.com"));
+        personasContacto.add(new Persona("Ana2","Lopez","987456123","Limpiador","notengoCorreo@gmail.com"));
+        personasContacto.add(new Persona("Carlos2","Rodriguez","987456123","Jefe","ensalada@gmail.com"));
+
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_ayesa,"Ayesa","https://www.ayesa.com/es/","37.405670254372204, -6.00576255836253","ayesa@gmail.com","Calle Ayesa Nº12","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_accenture,"Accenture","https://www.accenture.com/es-es","37.40925192610155, -6.0051052","accenture@gmail.com","Calle Accenture Nº10","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_deloitte,"Deloitte","https://www2.deloitte.com/es/es.html","37.39219427031523, -6.010424399999999","deloitte@gmail.com","Direccion Deloitte Nº21","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_adidas,"Adidas","Ropa","152"));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_cruzcampo,"Cruzcampo","Alimentacion","829"));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_apple,"Apple","Dispositivos moviles","478"));
+
+    }
+
+    /*
+     * Cabecera:  public void onItemClick(AdapterView<?> adapterView, View view, int position, long l)
+     * Comentario: Este metodo se encarga de realizar una tarea cuando un elemento es clicado.
+     *             En este caso al seleccionar un elemento de una lista se iniciara otra actividad.
+     * Entradas: AdapterView<?> adapterView, View view, int position, long l
+     * Salidas: Ninguna
+     * Precondiciones: Ninguna
+     * Postcondicones: Se iniciara otra activida siempre que el elemento clicado sea un objeto de tipo
+     *                 EmpresaTecnologica.
+     */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         Object objeto = listaEmpresas.get(position);
@@ -82,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
 
     }
 
-    //Adapter TexView
+    //Adapter ListViewEmpresas
     class ListViewEmpresasAdapter extends BaseAdapter {
         private ArrayList<Empresa> empresasListView;
 
@@ -172,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
             return viewRow;
         }
     }
-
+    //View Holder para empresasTecnologicas
     class ViewHolderEmpresaTecnologica {
         private ImageView imageViewLogo;
         private TextView textViewNombre;
@@ -208,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         }
     }
 
+    //View Holder para empresasNoTecnologicas
     class ViewHolderEmpresaNoTecnologica {
         private ImageView imageViewLogo;
         private TextView textViewNombre;
@@ -280,13 +307,13 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
                 return filterResults;
             }
 
-            //Metodo para publicar/Actualizar la lista.Para que se vean los cambios en el listView se le asigna otra vez un adapter, pero esta vez con la lista de empresas que se hayan filtrado
+            //Metodo para publicar/Actualizar la lista de empresas.Para que se vean los cambios en el listView se le asigna otra vez un adapter, pero esta vez con la lista de empresas que se hayan filtrado
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                if(filterResults == null){//Cuando filterResults sea null, sera cuando no se ingrese ningun caracter, entonces modifica la lista de empresas con todas las empresas
+                if(filterResults == null){//Cuando filterResults sea null, sera cuando no se ingrese ningun caracter, entonces se modifica la lista de empresas con todas las empresas
                     listaEmpresas = new ArrayList<>(empresasAux);
                 }
-                //Cuando no sea filterResults null en performFiltering la listaEmpresas entra como minimo una empresa dentro
+                //Cuando filterResults no sea  null en performFiltering la listaEmpresas se va incluir como minimo una empresa dentro
                 listViewEmpresas.setAdapter(new ListViewEmpresasAdapter(listaEmpresas));
             }
         };

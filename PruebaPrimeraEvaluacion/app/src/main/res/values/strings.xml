@@ -11,4 +11,6 @@
     <string name="web">Web:</string>
     <string name="nombre">Nombre:</string>
     <string name="resultados_guardados">Resultados Guardados:</string>
+    <string name="datos">Datos:</string>
+    <string name="cargo">Cargo:</string>
 </resources>
