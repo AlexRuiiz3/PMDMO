@@ -29,6 +29,7 @@ public class PersonasContactoActivity extends AppCompatActivity implements Adapt
 
         textViewTelefono = findViewById(R.id.textViewTelefonoPersona);
         textViewCargo = findViewById(R.id.textViewCargoPersona);
+
         textViewEmail = findViewById(R.id.textViewEmailPersona);
 
         //Se obtienen las personas que vienen de otra actividad

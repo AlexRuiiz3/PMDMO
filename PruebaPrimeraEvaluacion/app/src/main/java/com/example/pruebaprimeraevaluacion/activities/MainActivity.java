@@ -70,7 +70,18 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,Adapt
         listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_adidas,"Adidas","Ropa","152"));
         listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_cruzcampo,"Cruzcampo","Alimentacion","829"));
         listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_apple,"Apple","Dispositivos moviles","478"));
-
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_ayesa,"Ayesa","https://www.ayesa.com/es/","37.405670254372204, -6.00576255836253","ayesa@gmail.com","Calle Ayesa Nº12","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_accenture,"Accenture","https://www.accenture.com/es-es","37.40925192610155, -6.0051052","accenture@gmail.com","Calle Accenture Nº10","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_deloitte,"Deloitte","https://www2.deloitte.com/es/es.html","37.39219427031523, -6.010424399999999","deloitte@gmail.com","Direccion Deloitte Nº21","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_adidas,"Adidas","Ropa","152"));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_cruzcampo,"Cruzcampo","Alimentacion","829"));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_apple,"Apple","Dispositivos moviles","478"));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_ayesa,"Ayesa","https://www.ayesa.com/es/","37.405670254372204, -6.00576255836253","ayesa@gmail.com","Calle Ayesa Nº12","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_accenture,"Accenture","https://www.accenture.com/es-es","37.40925192610155, -6.0051052","accenture@gmail.com","Calle Accenture Nº10","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaTecnologica(R.drawable.logo_deloitte,"Deloitte","https://www2.deloitte.com/es/es.html","37.39219427031523, -6.010424399999999","deloitte@gmail.com","Direccion Deloitte Nº21","987451234",personasContacto));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_adidas,"Adidas","Ropa","152"));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_cruzcampo,"Cruzcampo","Alimentacion","829"));
+        listaEmpresas.add(new EmpresaNoTecnologica(R.drawable.logo_apple,"Apple","Dispositivos moviles","478"));
     }
 
     /*
