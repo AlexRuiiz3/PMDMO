@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements BotonesFragment.I
     }
     @Override
     public void interacionFragment(View view) {
-        String mensaje = "Soy del boton 1";
+            String mensaje = "Soy del boton 1";
 
         if(view != null && view.getId() == R.id.buttonSegundoMensaje){
             mensaje = "Soy el boton 2";

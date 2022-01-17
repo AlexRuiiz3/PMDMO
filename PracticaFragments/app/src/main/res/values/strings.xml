@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PracticaFragments</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="informacion_del_contacto">Información del Contacto</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="telefono">Telefono:</string>
+    <string name="direccion">Direccion:</string>
+</resources>
