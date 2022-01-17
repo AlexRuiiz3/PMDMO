@@ -1,15 +1,18 @@
 package es.iesnervion.practicafragments;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity implements FragmentList.ItemSelectRecyclerView{
+
+    private FragmentContacto fragmentContacto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentList fragmentList = FragmentList.newInstance(listaContactos);
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentList,fragmentList).commit();
 
-        FragmentContacto fragmentContacto = FragmentContacto.newInstance(listaContactos.get(0));
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentList,fragmentContacto).commit();
+        fragmentContacto = FragmentContacto.newInstance(listaContactos.get(0));
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContacto,fragmentContacto).commit();
     }
 
     private ArrayList<Contacto> crearListaConactos(){
@@ -34,5 +37,12 @@ public class MainActivity extends AppCompatActivity {
         contactos.add(new Contacto("Contacto 7","apellidos 7","777777777","C/Calle 7"));
         contactos.add(new Contacto("Contacto 8","apellidos 8","888888888","C/Calle 8"));
         return contactos;
+    }
+
+    @Override
+    public void onItemSelect(Contacto contactoSeleccionado) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("ContactonNuevo",contactoSeleccionado);
+        fragmentContacto.setArguments(bundle);
     }
 }

@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<fragment
+<FrameLayout
     android:id="@+id/fragmentList"
     android:name="es.iesnervion.practicafragments.FragmentList"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_weight="1"></fragment>
+    android:layout_weight="1"></FrameLayout>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/fragmentContacto"
         android:name="es.iesnervion.practicafragments.FragmentContacto"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="2"></fragment>
+        android:layout_weight="2"></FrameLayout>
 </LinearLayout>

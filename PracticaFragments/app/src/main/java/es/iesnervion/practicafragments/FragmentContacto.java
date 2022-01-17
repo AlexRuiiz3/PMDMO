@@ -2,6 +2,7 @@ package es.iesnervion.practicafragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -52,6 +53,12 @@ public class FragmentContacto extends Fragment {
     }
 
     @Override
+    public void setArguments(@Nullable Bundle args) {
+        super.setArguments(args);
+        contacto =(Contacto)args.getSerializable("ContactoNuevo");
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contacto, container, false);
@@ -60,13 +67,13 @@ public class FragmentContacto extends Fragment {
         textViewNombre.setText(getString(R.string.nombre)+" "+contacto.getNombre());
 
         TextView textViewApellidos = view.findViewById(R.id.textViewApellidosContactoFragment);
-        textViewNombre.setText(getString(R.string.nombre)+" "+contacto.getApellidos());
+        textViewApellidos.setText(getString(R.string.apellidos)+" "+contacto.getApellidos());
 
         TextView textViewTelefono = view.findViewById(R.id.textViewTelefonoContactoFragment);
-        textViewNombre.setText(getString(R.string.nombre)+" "+contacto.getTelefono());
+        textViewTelefono.setText(getString(R.string.telefono)+" "+contacto.getTelefono());
 
         TextView textViewDireccion = view.findViewById(R.id.textViewDireccionContactoFragment);
-        textViewNombre.setText(getString(R.string.nombre)+" "+contacto.getDireccion());
+        textViewDireccion.setText(getString(R.string.direccion)+" "+contacto.getDireccion());
 
         return view;
     }
