@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:baselineAligned="false">
 
-<FrameLayout
-    android:id="@+id/fragmentList"
-    android:name="es.iesnervion.practicafragments.FragmentList"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_weight="1"></FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/fragmentContacto"
-        android:name="es.iesnervion.practicafragments.FragmentContacto"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentList"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="2"></FrameLayout>
+        android:layout_weight="1" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
 </LinearLayout>

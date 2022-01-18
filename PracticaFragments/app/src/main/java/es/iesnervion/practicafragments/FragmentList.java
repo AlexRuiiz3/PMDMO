@@ -31,7 +31,7 @@ public class FragmentList extends Fragment {
     private static final String ARG_PARAM1 = "contactos";
     // TODO: Customize parameters
     private List<Contacto> contactos;
-    private ItemSelectRecyclerView interfaceItemSelect;
+    public ItemSelectRecyclerView interfaceItemSelect;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -51,7 +51,7 @@ public class FragmentList extends Fragment {
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
+    public void onAttach(Context context) {
         super.onAttach(context);
         interfaceItemSelect = (ItemSelectRecyclerView)context;
     }
@@ -69,15 +69,13 @@ public class FragmentList extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         RecyclerView listaContactos = view.findViewById(R.id.RecyclerViewContactos);
-       // listaContactos.setOnClickListener(this);
-
         listaContactos.setLayoutManager(new LinearLayoutManager(getContext()));
         listaContactos.setAdapter(new ListFragmentAdapter(contactos,this));
         return view;
     }
 
     //ADAPTER
-    public static class ListFragmentAdapter extends RecyclerView.Adapter<ListFragmentAdapter.ViewHolder> {
+    public class ListFragmentAdapter extends RecyclerView.Adapter<ListFragmentAdapter.ViewHolder>  {
 
         private final List<Contacto> contactos;
         private FragmentList fragmentList;
@@ -90,7 +88,6 @@ public class FragmentList extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contacto_recyclerview,parent,false);
-
             return new ViewHolder(view);
         }
 
@@ -105,19 +102,27 @@ public class FragmentList extends Fragment {
         }
 
         //VIEW HOLDER
-        public class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
             public TextView textViewNombreContacto;
             public TextView textViewTelefonoContacto;
+            public Contacto contacto;
 
             public ViewHolder(View view) {
                 super(view);
                 textViewNombreContacto = view.findViewById(R.id.textViewNombreContacto);
                 textViewTelefonoContacto = view.findViewById(R.id.textViewTelefonoContacto);
+                view.setOnClickListener(this);
             }
 
             public void asignarDatos(Contacto contacto){
                 textViewNombreContacto.setText(contacto.getNombre());
                 textViewTelefonoContacto.setText(contacto.getTelefono());
+                this.contacto = contacto;
+            }
+
+            @Override
+            public void onClick(View v) {
+                interfaceItemSelect.onItemSelect(contacto);
             }
         }
     }
