@@ -52,21 +52,10 @@ public class FragmentContacto extends Fragment {
         }
     }
 
-    public void actualizar(Bundle a){
-        contacto = (Contacto) a.getSerializable("ContactoSeleccionado");
-        View view = getView();
-        TextView textViewNombre = view.findViewById(R.id.textViewNombreContactoFragment);
-        textViewNombre.setText(getString(R.string.nombre)+" "+contacto.getNombre());
-
-        TextView textViewApellidos = view.findViewById(R.id.textViewApellidosContactoFragment);
-        textViewApellidos.setText(getString(R.string.apellidos)+" "+contacto.getApellidos());
-
-        TextView textViewTelefono = view.findViewById(R.id.textViewTelefonoContactoFragment);
-        textViewTelefono.setText(getString(R.string.telefono)+" "+contacto.getTelefono());
-
-        TextView textViewDireccion = view.findViewById(R.id.textViewDireccionContactoFragment);
-        textViewDireccion.setText(getString(R.string.direccion)+" "+contacto.getDireccion());
-
+    @Override
+    public void setArguments(@Nullable Bundle args) {
+        super.setArguments(args);
+        contacto =(Contacto)args.getSerializable("ContactoNuevo");
     }
 
     @Override

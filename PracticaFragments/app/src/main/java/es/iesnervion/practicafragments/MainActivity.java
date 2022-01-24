@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements FragmentList.Item
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ArrayList<Contacto> listaContactos = crearListaContacos();
+        ArrayList<Contacto> listaContactos = crearListaConactos();
 
         FragmentList fragmentList = FragmentList.newInstance(listaContactos);
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentList,fragmentList).commit();
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements FragmentList.Item
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentContacto,fragmentContacto).commit();
     }
 
-    private ArrayList<Contacto> crearListaContacos(){
+    private ArrayList<Contacto> crearListaConactos(){
         ArrayList<Contacto> contactos = new ArrayList<>();
         contactos.add(new Contacto("Contacto 1","apellidos 1","111111111","C/Calle 1"));
         contactos.add(new Contacto("Contacto 2","apellidos 2","222222222","C/Calle 2"));
@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity implements FragmentList.Item
     @Override
     public void onItemSelect(Contacto contactoSeleccionado) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable("ContactoSeleccionado",contactoSeleccionado);
-        fragmentContacto.actualizar(bundle);
-
+        bundle.putSerializable("ContactonNuevo",contactoSeleccionado);
+        fragmentContacto.setArguments(bundle);
     }
 }
