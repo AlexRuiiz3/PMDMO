@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AAAAAA"
+    tools:context=".FragmentContacto">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textViewInformacionContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/informacion_del_contacto"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewNombreContactoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/nombre"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewApellidosContactoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/apellidos"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewTelefonoContactoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/telefono"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewDireccionContactoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/direccion"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</FrameLayout>
