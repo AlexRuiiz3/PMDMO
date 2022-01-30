@@ -2,53 +2,85 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <pickBest>false</pickBest>
+        <target>android-31</target>
+      </config>
     </shared>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8452782-667d-47bf-ae1b-8b2ed8f7a6df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/BoletinLayouts/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoletinLayouts/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoletinLayouts/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoletinLayouts/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoletinLayouts/app/src/main/java/es/iesnervion/aruiz/boletinlayouts/ListViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoletinLayouts/app/src/main/java/es/iesnervion/aruiz/boletinlayouts/ListViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoletinLayouts/app/src/main/res/layout/activity_list_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoletinLayouts/app/src/main/res/layout/activity_list_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoletinLayouts/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoletinLayouts/app/src/main/res/values/strings.xml" afterDir="false" />
+    <list default="true" id="968a8955-6a60-44f5-91e3-1003505cebd7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fragments/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fragments/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fragments/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fragments/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fragments/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fragments/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fragments/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fragments/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fragments/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Fragments/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\aruiz\.android\avd\10.1_WXGA_Tablet_API_19.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\AlexRuiz\.android\avd\Pixel_5_API_19.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1ziSHEX4FEsqqky9bP73xHg1o46" />
+  <component name="ProjectId" id="24MqMzF4fV8uUYlE0XDZLRTR3If" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
+    <property name="settings.editor.selected.configurable" value="test.recorder" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AlexRuiz\Desktop\Ciclo DAM\Repositorios\PMDMO\app\src\main\res\drawable" />
+      <recent name="C:\Users\AlexRuiz\Desktop\Ciclo DAM\Repositorios\PMDMO\app\src\main\res\menus" />
+      <recent name="C:\Users\AlexRuiz\Desktop\Ciclo DAM\Repositorios\PMDMO\app\src\main\res\layout" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="es.iesnervion.aruiz.pruebasegundaevaluacion" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="Pruebas.app" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="PruebaSegundaEvaluacion.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ALL_USERS" value="false" />
+      <option name="ALL_USERS" value="true" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
@@ -103,15 +135,24 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a8452782-667d-47bf-ae1b-8b2ed8f7a6df" name="Default Changelist" comment="" />
-      <created>1634629326218</created>
+      <changelist id="968a8955-6a60-44f5-91e3-1003505cebd7" name="Default Changelist" comment="" />
+      <created>1643450758991</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1634629326218</updated>
+      <updated>1643450758991</updated>
     </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

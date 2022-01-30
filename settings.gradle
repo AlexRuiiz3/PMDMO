@@ -6,5 +6,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "es.iesnervion.aruiz.pruebasegundaevaluacion.Fragments"
+rootProject.name = "PruebaSegundaEvaluacion"
 include ':app'
