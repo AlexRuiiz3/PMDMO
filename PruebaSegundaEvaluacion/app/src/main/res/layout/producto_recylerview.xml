@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imagenPrecio"
+        android:layout_width="38dp"
+        android:layout_height="39dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNombreProducto"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/icono_precio" />
+
+    <TextView
+        android:id="@+id/textViewPrecioProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenPrecio"
+        app:layout_constraintEnd_toEndOf="@+id/imagenPrecio"
+        app:layout_constraintStart_toStartOf="@+id/imagenPrecio"
+        app:layout_constraintTop_toTopOf="@+id/imagenPrecio"
+        tools:text="4.99€" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ImageViewProducto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/producto_prueba2" />
+
+    <TextView
+        android:id="@+id/textViewNombreProducto"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintEnd_toEndOf="@id/ImageViewProducto"
+        app:layout_constraintStart_toStartOf="@id/ImageViewProducto"
+        app:layout_constraintTop_toBottomOf="@id/ImageViewProducto"
+        tools:text="Botella de agua" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

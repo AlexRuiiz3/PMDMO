@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item >
+        <shape android:shape="rectangle">
+            <solid android:color="@color/green" /><!--Esto hace que luego se vea el color en la app-->
+            <corners android:radius="15dp" /> <!--Esto hace que los bordes del boton sean redondos-->
+        </shape>
+    </item>
+</selector>
