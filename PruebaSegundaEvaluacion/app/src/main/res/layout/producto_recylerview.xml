@@ -49,5 +49,4 @@
         app:layout_constraintTop_toBottomOf="@id/ImageViewProducto"
         tools:text="Botella de agua" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

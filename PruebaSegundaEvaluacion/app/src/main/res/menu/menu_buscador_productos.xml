@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_save"
-        android:title="@string/filtrar_categorias" />
+    <item android:id="@+id/menuBuscadorProductosFiltrarCategorias"
+        android:title="@string/filtrar_categorias">
+        <menu>
+
+        </menu>
+    </item>
     <item android:id="@+id/menu_savae"
         android:title="@string/ordenar_por" />
 </menu>

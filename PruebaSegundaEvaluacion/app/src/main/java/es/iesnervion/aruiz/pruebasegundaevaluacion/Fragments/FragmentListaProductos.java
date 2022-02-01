@@ -5,7 +5,9 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -18,7 +20,7 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
  * Use the {@link FragmentListaProductos#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentListaProductos extends Fragment implements View.OnClickListener {
+public class FragmentListaProductos extends Fragment implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,16 +34,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     public FragmentListaProductos() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentListaProductos.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FragmentListaProductos newInstance(String param1, String param2) {
         FragmentListaProductos fragment = new FragmentListaProductos();
         Bundle args = new Bundle();
@@ -50,7 +42,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +50,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,14 +59,23 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         botonDesplegable.setOnClickListener(this);
         return view;
     }
-
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.imageButtonDesplegable){
             PopupMenu popup = new PopupMenu(getContext(), v);
             MenuInflater inflater = popup.getMenuInflater();
             inflater.inflate(R.menu.menu_buscador_productos, popup.getMenu());
+            popup.setOnMenuItemClickListener(this);
             popup.show();
         }
+    }
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        boolean elementoDeseadoClicado = false;
+        if(item.getItemId() == R.id.menuBuscadorProductosFiltrarCategorias){
+            item.getSubMenu().add("Categoria 1");
+            elementoDeseadoClicado = true;
+        }
+        return elementoDeseadoClicado;
     }
 }

@@ -10,4 +10,10 @@
     <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
     <string name="ordenar_por">Ordenar Por</string>
     <string name="filtrar_categorias">Filtrar Categorias</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="productos_en_la_cesta">Productos en la cesta</string>
+    <string name="detalles_del_producto">Detalles del producto</string>
+    <string name="producto">Producto</string>
+    <string name="cantidad_de_stock">Cantidad de stock</string>
+    <string name="precio_litro_kilo">Precio litro/kilo</string>
 </resources>
