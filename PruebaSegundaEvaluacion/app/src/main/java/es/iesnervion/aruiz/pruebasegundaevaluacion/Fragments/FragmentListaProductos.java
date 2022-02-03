@@ -1,17 +1,25 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.Fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 
@@ -71,11 +79,64 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     }
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        boolean elementoDeseadoClicado = false;
-        if(item.getItemId() == R.id.menuBuscadorProductosFiltrarCategorias){
-            item.getSubMenu().add("Categoria 1");
-            elementoDeseadoClicado = true;
+
+        switch (item.getItemId()){
+            case R.id.menuBuscadorProductosFiltrarCategorias:
+                //TODO obtener cuantas categorias hay en la BBDD y mostrar su nombre
+                SubMenu submenu = item.getSubMenu();
+                for (int i = 1; i <= 20; i++){
+                    submenu.add("Categoria "+i);
+                }
+            break;
+
+            case R.id.submenOrdenarItemNombre:
+                //TODO Ordenar lista por nombre
+            break;
+
+            case R.id.submenOrdenarItemPrecio:
+                //TODO Ordenar lista por precio
+            break;
+
+            default: //Sera cuando se haga click en una categoria
+                Toast.makeText(getContext(),item.getTitle(),Toast.LENGTH_SHORT).show();
+            break;
         }
-        return elementoDeseadoClicado;
+        return true;
+    }
+
+    class AdapterRecyclerViewListProducts extends RecyclerView.Adapter {
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return null;
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return 0;
+        }
+
+        class ViewHolder extends RecyclerView.ViewHolder{
+
+            private TextView textViewPrecio;
+            private TextView textViewNombre;
+            private ImageView imageViewImagenProducto;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                textViewPrecio = itemView.findViewById(R.id.textViewPrecioProducto);
+                textViewNombre = itemView.findViewById(R.id.textViewNombreProducto);
+                imageViewImagenProducto = itemView.findViewById(R.id.imageViewProducto);
+            }
+
+            public asignarDatos(Producto producto){
+
+            }
+        }
     }
 }

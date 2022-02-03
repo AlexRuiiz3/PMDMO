@@ -26,7 +26,7 @@
         tools:text="4.99€" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ImageViewProducto"
+        android:id="@+id/imageViewProducto"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="4dp"
@@ -44,9 +44,9 @@
         android:textSize="15sp"
         android:gravity="center"
         android:layout_marginTop="-10dp"
-        app:layout_constraintEnd_toEndOf="@id/ImageViewProducto"
-        app:layout_constraintStart_toStartOf="@id/ImageViewProducto"
-        app:layout_constraintTop_toBottomOf="@id/ImageViewProducto"
+        app:layout_constraintEnd_toEndOf="@id/imageViewProducto"
+        app:layout_constraintStart_toStartOf="@id/imageViewProducto"
+        app:layout_constraintTop_toBottomOf="@id/imageViewProducto"
         tools:text="Botella de agua" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

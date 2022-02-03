@@ -10,7 +10,7 @@
         android:id="@+id/textViewBienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="56dp"
         android:text="@string/bienvenido"
         android:textColor="#4CAF50"
         android:textSize="48sp"
@@ -19,6 +19,17 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@id/imageViewIcon"
+        android:layout_width="141dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/icono_carro_compra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewBienvenido" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonLogin"
@@ -56,24 +67,13 @@
             android:layout_gravity="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@id/imageViewIcon"
-        android:layout_width="141dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/icono_carro_compra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewBienvenido" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textFieldDNI"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="60dp"
         android:gravity="center_horizontal"
         android:hint="@string/dni"

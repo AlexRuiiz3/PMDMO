@@ -7,5 +7,10 @@
         </menu>
     </item>
     <item android:id="@+id/menu_savae"
-        android:title="@string/ordenar_por" />
+        android:title="@string/ordenar_por" >
+        <menu>
+            <item android:id="@+id/submenOrdenarItemNombre" android:title="Nombre"/>
+            <item android:id="@+id/submenOrdenarItemPrecio" android:title="Precio"/>
+        </menu>
+    </item>
 </menu>
