@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My ApplicationA</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="product_name">Botella de agua</string>
+    <string name="price">0.99€</string>
+</resources>
