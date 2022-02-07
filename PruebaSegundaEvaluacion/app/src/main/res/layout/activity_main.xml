@@ -10,6 +10,6 @@
     android:id="@+id/fragmetPrincipal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="es.iesnervion.aruiz.pruebasegundaevaluacion.Fragments.FragmentListaProductos"/>
+    android:name="es.iesnervion.aruiz.pruebasegundaevaluacion.fragments.FragmentListaProductos"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package es.iesnervion.aruiz.pruebasegundaevaluacion.Fragments;
+package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentDetallesProducto#newInstance} factory method to
+ * Use the {@link FragmentCestaCompra#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentDetallesProducto extends Fragment {
+public class FragmentCestaCompra extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FragmentDetallesProducto extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentDetallesProducto() {
+    public FragmentCestaCompra() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class FragmentDetallesProducto extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentDetallesProducto.
+     * @return A new instance of fragment FragmentCestaCompra.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentDetallesProducto newInstance(String param1, String param2) {
-        FragmentDetallesProducto fragment = new FragmentDetallesProducto();
+    public static FragmentCestaCompra newInstance(String param1, String param2) {
+        FragmentCestaCompra fragment = new FragmentCestaCompra();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class FragmentDetallesProducto extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalles_producto, container, false);
+        return inflater.inflate(R.layout.fragment_cesta_compra, container, false);
     }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "`Producto")
+@Entity(tableName = "Producto")
 public class ProductoDBO {//CLASE QUE SE COMNUICA CON LA BDD
 
     @PrimaryKey(autoGenerate = true)

@@ -9,8 +9,8 @@
     <item android:id="@+id/menu_savae"
         android:title="@string/ordenar_por" >
         <menu>
-            <item android:id="@+id/submenOrdenarItemNombre" android:title="Nombre"/>
-            <item android:id="@+id/submenOrdenarItemPrecio" android:title="Precio"/>
+            <item android:id="@+id/submenuOrdenarItemNombre" android:title="Nombre"/>
+            <item android:id="@+id/submenuOrdenarItemPrecio" android:title="Precio"/>
         </menu>
     </item>
 </menu>
