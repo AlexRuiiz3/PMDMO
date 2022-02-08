@@ -5,11 +5,11 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "Cesta", primaryKeys = {"codigo","DNI"},
+@Entity (tableName = "Cesta", primaryKeys = {"codigo","DNI"}/*,
          foreignKeys = @ForeignKey(entity = UsuarioDBO.class,
                                    parentColumns = "DNI",
                                    childColumns = "DNIUsuario"
-                                  )
+                                  )*/
          )
 
 public class CestaDBO {
