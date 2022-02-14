@@ -2,7 +2,7 @@ package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relacio
 
 import androidx.room.Entity;
 
-@Entity(primaryKeys = {"codigoCesta","codigoProducto"})
+@Entity(tableName = "CestaProductos",primaryKeys = {"codigoCesta","codigoProducto"})
 public class CestaProductoCrossRef {
     public int codigoCesta;
     public int codigoProducto;

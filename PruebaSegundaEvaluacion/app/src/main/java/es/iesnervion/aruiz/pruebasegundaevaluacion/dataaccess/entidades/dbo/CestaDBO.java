@@ -1,6 +1,7 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo;
 
 import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -17,6 +18,7 @@ public class CestaDBO {
     @PrimaryKey(autoGenerate = true)
     private int codigo;
     @Nullable
+    @ColumnInfo(defaultValue = "false")
     private boolean estado;
     @Nullable
     private String DNIUsuario;

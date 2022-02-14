@@ -9,19 +9,21 @@ import androidx.room.RoomDatabase;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.CestaDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.UsuarioDBO;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relaciones.CestaWithProductos;
 
 @Database(entities = {
                      CestaDBO.class,
                      ProductoDBO.class,
-                     ProductosCestaDBO.class,
+                     CestaWithProductos.class,
                      UsuarioDBO.class
-        //TODO PONER LAS RELACIONES N:M
                     },
            version = 1 //Si cambia cualquier cosa de la BBDD, Hay que cambiar la version, sino falla.
 )
 public abstract class AppDatabase extends RoomDatabase {
 
-    public abstract CarroCompraDAO carroCompraDAO();//POR CADA ENTITY PONER UN DAO
+    public abstract CestaDBO cestaDao();
+    public abstract UsuarioDBO usuarioDao();
+    public abstract ProductoDBO productoDao();
 
     private AppDatabase APPDATABASE = null;
 

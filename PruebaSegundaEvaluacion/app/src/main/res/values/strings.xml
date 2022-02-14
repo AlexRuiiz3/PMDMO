@@ -16,4 +16,8 @@
     <string name="producto">Producto</string>
     <string name="cantidad_de_stock">Cantidad de stock</string>
     <string name="precio_litro_kilo">Precio litro/kilo</string>
+    <string name="correo_electr_nico">Correo Electrónico</string>
+    <string name="direcci_n">Dirección</string>
+    <string name="confirmar_contrase_a">Confirmar contraseña</string>
+    <string name="tel_fono_de_contacto">Teléfono de contacto</string>
 </resources>
