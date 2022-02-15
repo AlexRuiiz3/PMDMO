@@ -9,6 +9,7 @@ import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.util.c
 
 import java.util.List;
 
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
@@ -17,17 +18,17 @@ import io.reactivex.Flowable;
 public interface ProductoDao {
 
     @Insert
-    ListenableFuture<Integer> insertarProductos(List<ProductoDBO> productos);
+    ListenableFuture<Integer> insertarProductos(List<ProductoBO> productos);
 
     @Query("SELECT * FROM Productos")
-    ListenableFuture<List<ProductoDBO>> obtenerProductos();
+    ListenableFuture<List<ProductoBO>> obtenerProductos();
 
     @Query("SELECT * FROM Productos WHERE codigo = :codigoProducto")
-    ListenableFuture<ProductoDBO> obtenerProducto(int codigoProducto);
+    ListenableFuture<ProductoBO> obtenerProducto(int codigoProducto);
 
     @Query("SELECT P.* FROM Productos AS P " +
             "INNER JOIN CestaProductos AS CP ON P.codigo = CP.codigoProducto " +
             "INNER JOIN Cesta AS C ON CP.codigoCesta = C.codigo " +
             "WHERE C.DNIUsuario = :dni")
-    LiveData<List<ProductoDBO>> obtenerProductosCestaUsuario(String dni);
+    LiveData<List<ProductoBO>> obtenerProductosCestaUsuario(String dni);
 }

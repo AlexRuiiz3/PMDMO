@@ -15,16 +15,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 
 public class FragmentListaProductos extends Fragment implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
-    private List<ProductoDBO> listadoProductos;
+    private List<ProductoBO> listadoProductos;
     private RecyclerView recyclerView;
 
     public FragmentListaProductos() {
@@ -65,7 +67,7 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     }
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        List<ProductoDBO> productos = null;
+        List<ProductoBO> productos = null;
         switch (item.getItemId()){
             case R.id.menuBuscadorProductosFiltrarCategorias:
                 //TODO obtener cuantas categorias hay en la BBDD y mostrar su nombre
@@ -78,12 +80,14 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
 
             case R.id.submenuOrdenarItemNombre:
                 //TODO Ordenar lista por nombre
-                productos = new ArrayList<>();
+                Toast.makeText(getContext(),item.getTitle(),Toast.LENGTH_SHORT).show();
+                //productos = new ArrayList<>();
             break;
 
             case R.id.submenuOrdenarItemPrecio:
                 //TODO Ordenar lista por precio
-                productos = new ArrayList<>();
+                Toast.makeText(getContext(),item.getTitle(),Toast.LENGTH_SHORT).show();
+                //productos = new ArrayList<>();
             break;
 
             default: //Sera cuando se haga click en una categoria
@@ -101,9 +105,9 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     }
 
     public class AdapterRecyclerViewListProducts extends RecyclerView.Adapter<AdapterRecyclerViewListProducts.ViewHolder> {
-        private List<ProductoDBO> listaProductos;
+        private List<ProductoBO> listaProductos;
 
-        public AdapterRecyclerViewListProducts(List<ProductoDBO> listaProductos){
+        public AdapterRecyclerViewListProducts(List<ProductoBO> listaProductos){
             this.listaProductos = listaProductos;
         }
 
@@ -135,7 +139,7 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
                 imageViewImagenProducto = itemView.findViewById(R.id.imageViewProducto);
             }
 
-            public void asignarDatos(ProductoDBO producto){
+            public void asignarDatos(ProductoBO producto){
                 textViewNombre.setText(producto.getNombre());
                 textViewPrecio.setText(String.valueOf(producto.getPrecio()));
                 imageViewImagenProducto.setImageResource(Integer.parseInt("R.drawable."+producto.getImagen()));
