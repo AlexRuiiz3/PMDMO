@@ -10,6 +10,7 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.Cest
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 
 public class CestaWithProductos {
+
     @Embedded public CestaDBO cesta;
     @Relation(
             parentColumn = "codigo",

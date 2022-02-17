@@ -1,5 +1,6 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -8,20 +9,21 @@ import androidx.room.PrimaryKey;
 public class UsuarioDBO {
 
     @PrimaryKey
-    private String DNI;
+    @NonNull
+    public String DNI;
     @Nullable
-    private String nombre;
+    public String nombre;
     @Nullable
-    private String contrasenha;
+    public String contrasenha;
     @Nullable
-    private String direccion;
+    public String direccion;
     @Nullable
-    private String primerApellido;
+    public String primerApellido;
     @Nullable
-    private String segundoApellido;
+    public String segundoApellido;
     @Nullable
-    private String email;
+    public String email;
     @Nullable
-    private String telefono;
+    public String telefono;
 
 }

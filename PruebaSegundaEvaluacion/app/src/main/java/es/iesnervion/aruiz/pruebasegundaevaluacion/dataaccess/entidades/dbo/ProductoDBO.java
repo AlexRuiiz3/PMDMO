@@ -4,19 +4,34 @@ import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
+
 @Entity (tableName = "Productos")
 public class ProductoDBO {
 
+    public ProductoDBO(){
+
+    }
+
+    public ProductoDBO(ProductoBO productoBO){
+        codigo = productoBO.getCodigo();
+        nombre = productoBO.getNombre();
+        precio = productoBO.getPrecio();
+        precioKiloLitro = productoBO.getPrecioKiloLitro();
+        categoria = productoBO.getCategoria();
+        imagen = productoBO.getImagen();
+    }
+
     @PrimaryKey(autoGenerate = true)
-    private int codigo;
+    public int codigo;
     @Nullable
-    private String nombre;
+    public String nombre;
     @Nullable
-    private double precio;
+    public double precio;
     @Nullable
-    private double precioKiloLitro;
+    public double precioKiloLitro;
     @Nullable
-    private String categoria;
+    public String categoria;
     @Nullable
-    private String imagen;
+    public String imagen;
 }

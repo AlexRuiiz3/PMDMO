@@ -1,12 +1,13 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "Cesta", primaryKeys = {"codigo","DNI"}/*,
+@Entity (tableName = "Cesta"/*, primaryKeys = {"codigo","DNIUsuario"},
          foreignKeys = @ForeignKey(entity = UsuarioDBO.class,
                                    parentColumns = "DNI",
                                    childColumns = "DNIUsuario"
@@ -16,10 +17,12 @@ import androidx.room.PrimaryKey;
 public class CestaDBO {
 
     @PrimaryKey(autoGenerate = true)
-    private int codigo;
+    public int codigo;
     @Nullable
     @ColumnInfo(defaultValue = "false")
-    private boolean estado;
+    public boolean estado;
+
     @Nullable
-    private String DNIUsuario;
+    @NonNull//Obligaba a ponerlo
+    public String DNIUsuario;
 }

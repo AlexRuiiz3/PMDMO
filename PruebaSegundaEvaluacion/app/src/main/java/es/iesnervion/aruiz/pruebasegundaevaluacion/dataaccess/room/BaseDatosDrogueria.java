@@ -12,15 +12,16 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.UsuarioDao;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.CestaDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.UsuarioDBO;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relaciones.CestaProductoCrossRef;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relaciones.CestaWithProductos;
 
 @Database(entities = {
                      CestaDBO.class,
                      ProductoDBO.class,
-                     CestaWithProductos.class,
-                     UsuarioDBO.class
+                     UsuarioDBO.class,
+                     CestaProductoCrossRef.class
                     },
-           version = 1 //Si cambia cualquier cosa de la BBDD, Hay que cambiar la version, sino falla.
+           version = 10 //Si cambia cualquier cosa de la BBDD, Hay que cambiar la version, sino falla.
 )
 public abstract class BaseDatosDrogueria extends RoomDatabase {
 

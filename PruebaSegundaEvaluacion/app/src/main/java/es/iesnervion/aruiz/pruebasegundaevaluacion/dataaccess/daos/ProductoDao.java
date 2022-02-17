@@ -11,20 +11,18 @@ import java.util.List;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
-import io.reactivex.Completable;
-import io.reactivex.Flowable;
 
 @Dao
 public interface ProductoDao {
 
     @Insert
-    ListenableFuture<Integer> insertarProductos(List<ProductoBO> productos);
+    void insertarProductos(List<ProductoDBO> productos);
 
     @Query("SELECT * FROM Productos")
-    ListenableFuture<List<ProductoBO>> obtenerProductos();
+    LiveData<List<ProductoBO>> obtenerProductos();
 
-    @Query("SELECT * FROM Productos WHERE codigo = :codigoProducto")
-    ListenableFuture<ProductoBO> obtenerProducto(int codigoProducto);
+    @Query("SELECT * FROM Productos  WHERE codigo = :codigoProducto")
+    LiveData<ProductoBO> obtenerProducto(int codigoProducto);
 
     @Query("SELECT P.* FROM Productos AS P " +
             "INNER JOIN CestaProductos AS CP ON P.codigo = CP.codigoProducto " +

@@ -1,5 +1,7 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.List;
@@ -9,10 +11,10 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.repositorio.Reposi
 
 public class MainActivityVM extends ViewModel {
 
-    private RepositorioProducto producto;
-
-    public static int insertarProductos(List<ProductoBO> productos){
-        return RepositorioProducto.insertarProductos(productos);
+    public MutableLiveData<Integer> insertarProductos(List<ProductoBO> productos){
+        RepositorioProducto.insertarProductos(productos);
+        MutableLiveData<Integer> a = new MutableLiveData<>();
+        a.postValue(0);
+        return a;
     }
-
 }
