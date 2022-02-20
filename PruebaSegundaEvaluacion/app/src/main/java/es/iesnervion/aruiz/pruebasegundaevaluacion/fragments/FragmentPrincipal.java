@@ -3,6 +3,7 @@ package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +15,20 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
-import org.w3c.dom.Text;
-
 import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentPrincipalBinding;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Utilidades;
 
 public class FragmentPrincipal extends Fragment implements View.OnClickListener {
 
     private FragmentPrincipalBinding binding;
-    private EditText editTextViewDNI;
-    private EditText editTextPassword;
+    private EditText editTextDNI;
+    private EditText editTextContrasenha;
     private MaterialTextView textRegistrarse;
-    private MaterialButton buttonInisiarSesion;
+    private MaterialButton buttonIniciarSesion;
+
+    private MainActivityVM mainActivityVM;
 
     public FragmentPrincipal() {
         // Required empty public constructor
@@ -51,13 +54,15 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentPrincipalBinding.inflate(getLayoutInflater());
+        mainActivityVM = new ViewModelProvider(this).get(MainActivityVM.class);
+
         View view = binding.getRoot();
 
-        editTextViewDNI = binding.textFieldDNIInicioSesion.getEditText();
-        editTextPassword= binding.textFieldPasswordInicioSesion.getEditText();
+        editTextDNI = binding.textFieldDNIInicioSesion.getEditText();
+        editTextContrasenha = binding.textFieldContrasenhaInicioSesion.getEditText();
 
-        buttonInisiarSesion = binding.buttonIniciarSesion;
-        buttonInisiarSesion.setOnClickListener(this);
+        buttonIniciarSesion = binding.buttonIniciarSesion;
+        buttonIniciarSesion.setOnClickListener(this);
 
         textRegistrarse = binding.textViewRegistrarse;
         textRegistrarse.setOnClickListener(this);
@@ -70,15 +75,17 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener 
 
         switch(v.getId()){
             case R.id.buttonIniciarSesion:
-            if(comprarValidezDNI()){ //Si el DNI es valido
-                if(!editTextPassword.getText().toString().trim().equals("") && editTextPassword.getText().toString().length() >= 8){
-                    if(true){//TODO Comprobar en la base de datos
+            String DNI = editTextDNI.getText().toString();
+            String contrasenha = editTextContrasenha.getText().toString();
+
+            if(Utilidades.comprarValidezDNI(DNI,getContext())){ //Si el DNI es valido
+                if(Utilidades.validarContrasenha(contrasenha,getContext())){
+                    if(mainActivityVM.comprobarSiExisteUsuario(DNI,contrasenha)){
+                        mainActivityVM.getDniUsuario().postValue(DNI);//Se guarda en el view model el DNI.
                         Toast.makeText(getContext(),"Acceso concedido",Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(getContext(),"No existe ningun usuario con ese DNI y contraseña",Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(getContext(),"La contraseña no puede estar vacio, ademas debe tener 8 digitos minimo",Toast.LENGTH_SHORT).show();
                 }
             }
             break;
@@ -88,32 +95,5 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener 
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentRegistro).addToBackStack(null).commit();
             break;
         }
-    }
-
-    private boolean comprarValidezDNI(){
-        char [] letras = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
-        String DNI = editTextViewDNI.getText().toString();
-        int numeroDNI = 0;
-        boolean valido = false;
-
-        if(!DNI.trim().equals("")){// Si el DNI no esta vacio
-            if(DNI.length() == 9) {
-                try {
-                    numeroDNI = Integer.parseInt(DNI.substring(0,8));
-                    if(DNI.charAt(8) == letras[numeroDNI % 23]) {
-                        valido = true;
-                    }else {
-                        Toast.makeText(getContext(),"Letra del DNI no valida",Toast.LENGTH_SHORT).show();
-                    }
-                }catch(NumberFormatException e) {
-                    Toast.makeText(getContext(),"Numeros del DNI no valido",Toast.LENGTH_SHORT).show();
-                }
-            }else {
-                Toast.makeText(getContext(),"Longitud DNI no valida(Debe ser de 9)",Toast.LENGTH_SHORT).show();
-            }
-        }else {
-            Toast.makeText(getContext(),"DNI no puede estar vacio",Toast.LENGTH_SHORT).show();
-        }
-        return valido;
     }
 }

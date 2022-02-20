@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FragmentRegistro">
 
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Registro de usuario"
+        android:text="@string/registro_de_usuario"
         android:textColor="@color/green"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,19 +19,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayoutDNI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="63dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:src="@drawable/icono_usuario" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -46,8 +45,70 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="273dp"
-                android:layout_height="51dp"/>
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutDNI">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldNombreRegistro"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/nombre"
+            app:helperText="*Obligatorio"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutNombre">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldApellidoRegistro"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/apellidos"
+            app:helperText="*Obligatorio"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -57,19 +118,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutApellido">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="61dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
 
             android:src="@drawable/icono_password" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldPasswordRegistro"
+            android:id="@+id/textFieldContrasenhaRegistro"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,8 +141,8 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="273dp"
-                android:layout_height="51dp"/>
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -97,11 +158,11 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="61dp"/>
+            android:layout_width="55dp"
+            android:layout_height="55dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldPasswordConfirmacionRegistro"
+            android:id="@+id/textFieldContrasenhaConfirmacionRegistro"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,8 +173,8 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="273dp"
-                android:layout_height="51dp"/>
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -123,15 +184,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="61dp"
-
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:src="@drawable/icono_email" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -145,8 +205,8 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="273dp"
-                android:layout_height="51dp"/>
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -156,18 +216,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="61dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:src="@drawable/icono_direccion" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldPassword4"
+            android:id="@+id/textFieldDireccionRegistro"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,8 +236,8 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="273dp"
-                android:layout_height="51dp"/>
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -186,20 +246,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="50dp"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
             android:layout_marginTop="7dp"
             android:src="@drawable/icono_telefono_contacto" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldPassword5"
+            android:id="@+id/textFieldTelefonoRegistro"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -208,13 +268,13 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="273dp"
-                android:layout_height="51dp" />
+                android:layout_width="270dp"
+                android:layout_height="55dp"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonRegistrarRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"

@@ -11,6 +11,7 @@ import java.util.List;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
+import io.reactivex.Flowable;
 
 @Dao
 public interface ProductoDao {
@@ -19,7 +20,7 @@ public interface ProductoDao {
     void insertarProductos(List<ProductoDBO> productos);
 
     @Query("SELECT * FROM Productos")
-    LiveData<List<ProductoBO>> obtenerProductos();
+    Flowable<List<ProductoDBO>> obtenerProductos();
 
     @Query("SELECT * FROM Productos  WHERE codigo = :codigoProducto")
     LiveData<ProductoBO> obtenerProducto(int codigoProducto);

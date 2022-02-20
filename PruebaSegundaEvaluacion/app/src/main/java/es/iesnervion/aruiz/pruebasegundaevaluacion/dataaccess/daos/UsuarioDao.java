@@ -11,6 +11,8 @@ import java.util.List;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.UsuarioBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.UsuarioDBO;
+import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 @Dao
 public interface UsuarioDao {
@@ -18,6 +20,9 @@ public interface UsuarioDao {
     @Insert
     void insertUsuario(UsuarioDBO usuarioNuevo);//Devuelve el numero de filas afectadas
 
-    @Query("SELECT * FROM USUARIOS WHERE DNI= :dni AND contrasenha =:contrasenha")
-    LiveData<List<UsuarioBO>> obtenerUsuario(String dni, String contrasenha);
+    @Query("SELECT * FROM Usuarios WHERE DNI= :dni AND contrasenha =:contrasenha")
+    Flowable<UsuarioDBO> obtenerUsuarioPorDNIyContrasenha(String dni, String contrasenha);
+
+    @Query("SELECT * FROM Usuarios WHERE DNI = :dni")
+    Flowable<List<UsuarioDBO>> obtenerUsuarioPorDNI(String dni);
 }

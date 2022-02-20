@@ -21,4 +21,7 @@
     <string name="confirmar_contrase_a">Confirmar contraseña</string>
     <string name="tel_fono_de_contacto">Teléfono de contacto</string>
     <string name="registrar">Registrar</string>
+    <string name="registro_de_usuario">Registro de usuario</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
 </resources>

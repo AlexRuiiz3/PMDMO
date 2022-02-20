@@ -1,5 +1,7 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo;
 
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.UsuarioDBO;
+
 public class UsuarioBO {
 
     private String DNI;
@@ -20,6 +22,17 @@ public class UsuarioBO {
         this.segundoApellido = segundoApellido;
         this.email = email;
         this.telefono = telefono;
+    }
+
+    public UsuarioBO(UsuarioDBO usuarioDBO) {
+        DNI = usuarioDBO.DNI;
+        nombre = usuarioDBO.nombre;
+        contrasenha = usuarioDBO.contrasenha;
+        direccion = usuarioDBO.direccion;
+        primerApellido = usuarioDBO.primerApellido;
+        segundoApellido = usuarioDBO.segundoApellido;
+        email = usuarioDBO.email;
+        telefono = usuarioDBO.telefono;
     }
 
     public String getDNI() {

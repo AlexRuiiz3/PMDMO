@@ -1,5 +1,7 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo;
 
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
+
 public class ProductoBO {
 
     private int codigo;
@@ -9,13 +11,21 @@ public class ProductoBO {
     private String categoria;
     private String imagen;
 
-    public ProductoBO(int codigo, String nombre, double precio, double precioKiloLitro, String categoria, String imagen) {
-        this.codigo = codigo;
+    public ProductoBO(String nombre, double precio, double precioKiloLitro, String categoria, String imagen) {
         this.nombre = nombre;
         this.precio = precio;
         this.precioKiloLitro = precioKiloLitro;
         this.categoria = categoria;
         this.imagen = imagen;
+    }
+
+    public ProductoBO(ProductoDBO productoDBO) {
+        this.codigo = productoDBO.codigo;
+        this.nombre = productoDBO.nombre;
+        this.precio = productoDBO.precio;
+        this.precioKiloLitro = productoDBO.precioKiloLitro;
+        this.categoria = productoDBO.categoria;
+        this.imagen = productoDBO.imagen;
     }
 
     public int getCodigo() {

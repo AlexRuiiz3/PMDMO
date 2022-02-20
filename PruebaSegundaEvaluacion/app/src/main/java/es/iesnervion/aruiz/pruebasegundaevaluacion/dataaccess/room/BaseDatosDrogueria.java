@@ -21,7 +21,7 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relacion
                      UsuarioDBO.class,
                      CestaProductoCrossRef.class
                     },
-           version = 10 //Si cambia cualquier cosa de la BBDD, Hay que cambiar la version, sino falla.
+           version = 1 //Si cambia cualquier cosa de la BBDD, Hay que cambiar la version, sino falla.
 )
 public abstract class BaseDatosDrogueria extends RoomDatabase {
 

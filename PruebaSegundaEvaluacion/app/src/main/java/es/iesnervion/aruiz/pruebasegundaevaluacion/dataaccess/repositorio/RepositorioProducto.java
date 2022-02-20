@@ -1,10 +1,12 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.repositorio;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
+import androidx.lifecycle.LiveData;
 
-import es.iesnervion.aruiz.pruebasegundaevaluacion.Generica;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Generica;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.Utilidades.Mapper;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.ProductoDao;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
@@ -22,5 +24,16 @@ public class RepositorioProducto {
             productosDBO.add(Mapper.productoBOaDBO(productoBO));
         }
         database.productoDao().insertarProductos(productosDBO);
+    }
+
+    public static List<ProductoBO> obtenerProductos(){
+        List<ProductoDBO> productosDBO = productoDao.obtenerProductos().blockingFirst();
+        ArrayList<ProductoBO> productosBO = new ArrayList<>();
+        if(productosDBO != null){
+            for (ProductoDBO productoDBO: productosDBO) {
+                productosBO.add(new ProductoBO(productoDBO));
+            }
+        }
+        return productosBO;
     }
 }
