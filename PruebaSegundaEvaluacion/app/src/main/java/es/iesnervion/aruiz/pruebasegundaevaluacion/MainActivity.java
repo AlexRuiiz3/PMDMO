@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         insertarProductosBBDD();
     }
 
+
+
     private void insertarProductosBBDD(){
         List<ProductoBO> productos = mainActivityVM.obtenerProductos();
         if(productos == null || productos.size() == 0){ //Si no hay productos en la BBDD

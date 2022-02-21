@@ -1,12 +1,16 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -51,6 +55,8 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
 
         }
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,6 +75,32 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3)); //Para especificar que el contenido del recylcerView se vea en 3 columnas
         recyclerView.setAdapter(new AdapterRecyclerViewListProducts(listadoProductos));
+
+
+        /* Esto es necesario para poder volver del fragment de listado de productos a el fragment de inicio de sesion.
+        *  Lo que se hace en entrar dentro del evento que esta asociado al boton del movil del ir para atras.
+        *  Es necesario hacerlo de esta manera debido a:
+        *  Tenemos 3 fragments I(Inicio sesion), R(Registro) y L(Listado de productos)
+        *  Entonces de I se pasa a R, y en la pila se guarda el fragment I
+        *  Ahora de R se pasa a L pero, no se guarda R en la pila ya que no tiene sentido que cuando se este en el fragment L, se vuelva a el fragment de registro
+        *  El problema esta en como esta hecha la pila de fragment por dentro porque,
+        *  I -> R(Guardar I) -> L
+        *
+        *  Si estando ahora en L se quiere volver atras, internamente como esta hecho lo que se hara es
+        *  remove de R y pone el I. Eso no es correcto porque se estarian superponiendo los fragments ahora se veria el fragment L que ya estaba mas el I
+        *
+        */
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                getActivity().getSupportFragmentManager().popBackStack();//Limpia todos los fragmentos que haya en la pila.
+                FragmentPrincipal fragmentPrincipal = FragmentPrincipal.newInstance(); //Se añade el fragment principal
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentPrincipal).commit();
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
+
+
         return view;
     }
     @Override
@@ -126,7 +158,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         return true;
     }
 
-    //Poner que cuando le de para atras pregunte si quiere salir.
 
 
 
