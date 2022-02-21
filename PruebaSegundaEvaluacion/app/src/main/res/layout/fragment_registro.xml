@@ -7,7 +7,7 @@
     tools:context=".fragments.FragmentRegistro">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -27,7 +27,7 @@
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintTop_toBottomOf="@id/textViewTitulo">
 
         <ImageView
             android:layout_width="55dp"
@@ -59,7 +59,7 @@
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutDNI">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutDNI">
 
         <ImageView
             android:layout_width="55dp"
@@ -90,7 +90,7 @@
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutNombre">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutNombre">
 
         <ImageView
             android:layout_width="55dp"
@@ -113,7 +113,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/linearLayoutContrasenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -147,7 +147,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout11"
+        android:id="@+id/linearLayoutConfirmarContrasenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -155,7 +155,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutContrasenha">
 
         <ImageView
             android:layout_width="55dp"
@@ -179,7 +179,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
+        android:id="@+id/linearLayoutEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -187,7 +187,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutConfirmarContrasenha">
 
         <ImageView
             android:layout_width="55dp"
@@ -211,7 +211,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/linearLayoutDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -219,7 +219,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutEmail">
 
         <ImageView
             android:layout_width="55dp"
@@ -242,7 +242,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout8"
+        android:id="@+id/linearLayoutTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -250,7 +250,7 @@
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutDireccion">
 
         <ImageView
             android:layout_width="55dp"
@@ -285,5 +285,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutTelefono" />
 </androidx.constraintlayout.widget.ConstraintLayout>

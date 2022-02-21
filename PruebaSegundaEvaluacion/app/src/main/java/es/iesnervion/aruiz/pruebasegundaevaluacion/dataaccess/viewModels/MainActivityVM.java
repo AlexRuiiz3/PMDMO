@@ -16,6 +16,9 @@ public class MainActivityVM extends ViewModel {
     private MutableLiveData<String> dniUsuario;
 
     public MutableLiveData<String> getDniUsuario() {
+        if(dniUsuario == null){
+            dniUsuario = new MutableLiveData<>();
+        }
         return dniUsuario;
     }
 

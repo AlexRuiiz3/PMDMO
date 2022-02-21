@@ -21,8 +21,7 @@ public class RepositorioUsuario {
     }
 
     public static boolean comprobarSiExisteDNIUsuario(String DNI, String contrasenha){
-        UsuarioDBO usuarioDBO = usuarioDao.obtenerUsuarioPorDNIyContrasenha(DNI, contrasenha).blockingFirst();
-        return usuarioDBO != null;
+        return usuarioDao.obtenerUsuarioPorDNIyContrasenha(DNI, contrasenha).blockingFirst().size() > 0;
     }
 
     public static boolean comprobarSiExisteDNIUsuario(String DNI){

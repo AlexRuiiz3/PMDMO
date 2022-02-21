@@ -9,9 +9,9 @@ public class ProductoBO {
     private double precio;
     private double precioKiloLitro;
     private String categoria;
-    private String imagen;
+    private int imagen;
 
-    public ProductoBO(String nombre, double precio, double precioKiloLitro, String categoria, String imagen) {
+    public ProductoBO(String nombre, double precio, double precioKiloLitro, String categoria, int imagen) {
         this.nombre = nombre;
         this.precio = precio;
         this.precioKiloLitro = precioKiloLitro;
@@ -67,11 +67,11 @@ public class ProductoBO {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    public String getImagen() {
+    public int getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 }

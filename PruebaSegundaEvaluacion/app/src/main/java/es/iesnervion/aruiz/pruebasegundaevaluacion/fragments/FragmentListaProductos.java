@@ -3,6 +3,8 @@ package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -17,22 +19,25 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
-import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentListaProductosBinding;
 
 public class FragmentListaProductos extends Fragment implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
+    private FragmentListaProductosBinding binding;
     private List<ProductoBO> listadoProductos;
     private RecyclerView recyclerView;
+    private MainActivityVM mainActivityVM;
+    private ImageButton botonFiltar;
+    private ImageButton botonCestaCompra;
 
     public FragmentListaProductos() {
         // Required empty public constructor
     }
-    public static FragmentListaProductos newInstance(String param1, String param2) {
+    public static FragmentListaProductos newInstance() {
         FragmentListaProductos fragment = new FragmentListaProductos();
         Bundle args = new Bundle();
 
@@ -49,20 +54,37 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lista_productos, container, false);
+        binding = FragmentListaProductosBinding.inflate(getLayoutInflater());
+        mainActivityVM = new ViewModelProvider(this).get(MainActivityVM.class);
+        View view = binding.getRoot();
 
-        ImageButton botonDesplegable = view.findViewById(R.id.imageButtonDesplegable);
-        botonDesplegable.setOnClickListener(this);
+        botonFiltar = binding.imageButtonFlitrar;
+        botonFiltar.setOnClickListener(this);
+
+        botonCestaCompra = binding.imageButtonCestaCompra;
+        botonCestaCompra.setOnClickListener(this);
+
+        listadoProductos = mainActivityVM.obtenerProductos();
+        recyclerView = binding.recyclerViewProductos;
+
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3)); //Para especificar que el contenido del recylcerView se vea en 3 columnas
+        recyclerView.setAdapter(new AdapterRecyclerViewListProducts(listadoProductos));
         return view;
     }
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.imageButtonDesplegable){
-            PopupMenu popup = new PopupMenu(getContext(), v);
-            MenuInflater inflater = popup.getMenuInflater();
-            inflater.inflate(R.menu.menu_buscador_productos, popup.getMenu());
-            popup.setOnMenuItemClickListener(this);
-            popup.show();
+        switch(v.getId()){
+            case R.id.imageButtonFlitrar:
+                PopupMenu popup = new PopupMenu(getContext(), v);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.menu_buscador_productos, popup.getMenu());
+                popup.setOnMenuItemClickListener(this);
+                popup.show();
+                break;
+
+            case R.id.imageButtonCestaCompra:
+                Toast.makeText(getContext(),"Ir a cesta de compra",Toast.LENGTH_SHORT).show();
+                break;
         }
     }
     @Override
@@ -104,6 +126,10 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         return true;
     }
 
+    //Poner que cuando le de para atras pregunte si quiere salir.
+
+
+
     public class AdapterRecyclerViewListProducts extends RecyclerView.Adapter<AdapterRecyclerViewListProducts.ViewHolder> {
         private List<ProductoBO> listaProductos;
 
@@ -141,8 +167,8 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
 
             public void asignarDatos(ProductoBO producto){
                 textViewNombre.setText(producto.getNombre());
-                textViewPrecio.setText(String.valueOf(producto.getPrecio()));
-                imageViewImagenProducto.setImageResource(Integer.parseInt("R.drawable."+producto.getImagen()));
+                textViewPrecio.setText(producto.getPrecio()+"€");
+                imageViewImagenProducto.setImageResource(producto.getImagen());
             }
         }
     }

@@ -21,7 +21,7 @@ public interface UsuarioDao {
     void insertUsuario(UsuarioDBO usuarioNuevo);//Devuelve el numero de filas afectadas
 
     @Query("SELECT * FROM Usuarios WHERE DNI= :dni AND contrasenha =:contrasenha")
-    Flowable<UsuarioDBO> obtenerUsuarioPorDNIyContrasenha(String dni, String contrasenha);
+    Flowable<List<UsuarioDBO>> obtenerUsuarioPorDNIyContrasenha(String dni, String contrasenha);
 
     @Query("SELECT * FROM Usuarios WHERE DNI = :dni")
     Flowable<List<UsuarioDBO>> obtenerUsuarioPorDNI(String dni);

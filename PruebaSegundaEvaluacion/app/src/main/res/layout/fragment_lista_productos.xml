@@ -7,7 +7,7 @@
     tools:context=".fragments.FragmentListaProductos">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutBarraOpciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -18,10 +18,10 @@
         <androidx.appcompat.widget.SearchView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="3" />
 
         <ImageButton
-            android:id="@+id/imageButtonDesplegable"
+            android:id="@+id/imageButtonFlitrar"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:background="@color/transparent"
@@ -34,7 +34,9 @@
             android:layout_height="match_parent"
             android:background="@color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/icono_carrito_compra" />
+            android:src="@drawable/icono_carrito_compra"
+            android:layout_marginEnd="2dp"
+            />
 
         <TextView
             android:id="@+id/textViewNumeroProductosCesta"
@@ -43,15 +45,18 @@
             android:layout_marginStart="-4dp"
             android:gravity="bottom"
             android:textColor="@color/red"
-            tools:text="10" />
+            android:layout_marginEnd="2dp"
+            android:text="10"
+            />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProductos"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutBarraOpciones" />
 </androidx.constraintlayout.widget.ConstraintLayout>

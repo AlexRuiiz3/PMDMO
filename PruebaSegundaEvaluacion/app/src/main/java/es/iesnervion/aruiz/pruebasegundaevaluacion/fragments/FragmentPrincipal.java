@@ -83,6 +83,8 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener 
                     if(mainActivityVM.comprobarSiExisteUsuario(DNI,contrasenha)){
                         mainActivityVM.getDniUsuario().postValue(DNI);//Se guarda en el view model el DNI.
                         Toast.makeText(getContext(),"Acceso concedido",Toast.LENGTH_SHORT).show();
+                        FragmentListaProductos fragmentListaProductos = FragmentListaProductos.newInstance();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentListaProductos).addToBackStack(null).commit();
                     }else{
                         Toast.makeText(getContext(),"No existe ningun usuario con ese DNI y contraseña",Toast.LENGTH_SHORT).show();
                     }

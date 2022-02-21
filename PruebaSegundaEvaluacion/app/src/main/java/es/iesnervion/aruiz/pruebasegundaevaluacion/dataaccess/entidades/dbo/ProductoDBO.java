@@ -20,5 +20,5 @@ public class ProductoDBO {
     @Nullable
     public String categoria;
     @Nullable
-    public String imagen;
+    public int imagen;
 }

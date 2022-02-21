@@ -16,6 +16,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.UsuarioBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentRegistroBinding;
@@ -87,7 +88,6 @@ public class FragmentRegistro extends Fragment implements View.OnClickListener {
         String email = editEmail.getText().toString();
         String direccion = editTextDireccion.getText().toString();
         String telefono = editTextTelefono.getText().toString();
-
         if (validarDNI()){
             if(Utilidades.validarCadena(nombre)) {
                 if(apellidos.split(" ").length > 0 && Utilidades.validarCadena(apellidos.split(" ")[0])){
@@ -98,7 +98,10 @@ public class FragmentRegistro extends Fragment implements View.OnClickListener {
                                 executor.execute(()->mainActivityVM.insertarUsuario(new UsuarioBO(dni,nombre,contrasenha,
                                         direccion,apellidos.split(" ")[0],segundoApellido,email,telefono)
                                 ));
-
+                                Toast.makeText(getContext(),"Registro completado",Toast.LENGTH_SHORT).show();
+                                mainActivityVM.getDniUsuario().postValue(dni);//Se guarda en el view model el DNI.
+                                FragmentListaProductos fragmentListaProductos = FragmentListaProductos.newInstance();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentListaProductos).commit();
                             }
                         }
                     }
