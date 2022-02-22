@@ -36,4 +36,20 @@ public class RepositorioProducto {
         }
         return productosBO;
     }
+
+    public static List<ProductoBO> obtenerProductosDeCategoria(String nombreCategoria){
+        List<ProductoDBO> productosDBO = productoDao.obtenerProductosDeCategoria(nombreCategoria).blockingFirst();
+        ArrayList<ProductoBO> productosBO = new ArrayList<>();
+        if(productosDBO != null){
+            for (ProductoDBO productoDBO: productosDBO) {
+                productosBO.add(new ProductoBO(productoDBO));
+            }
+        }
+        return productosBO;
+    }
+
+    public static List<String> obtenerCategorias(){
+        List<String> nombresCategorias = productoDao.obtenerNombreCategorias().blockingFirst();
+        return nombresCategorias;
+    }
 }

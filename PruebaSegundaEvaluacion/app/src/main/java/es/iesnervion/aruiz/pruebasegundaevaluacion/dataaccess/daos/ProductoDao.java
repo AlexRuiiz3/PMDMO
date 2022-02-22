@@ -22,8 +22,16 @@ public interface ProductoDao {
     @Query("SELECT * FROM Productos")
     Flowable<List<ProductoDBO>> obtenerProductos();
 
+    @Query("SELECT DISTINCT categoria FROM Productos")
+    Flowable<List<String>> obtenerNombreCategorias();
+
+    @Query("SELECT * FROM Productos WHERE categoria = :nombreCategoria")
+    Flowable<List<ProductoDBO>> obtenerProductosDeCategoria(String nombreCategoria);
+
     @Query("SELECT * FROM Productos  WHERE codigo = :codigoProducto")
     LiveData<ProductoBO> obtenerProducto(int codigoProducto);
+
+
 
     @Query("SELECT P.* FROM Productos AS P " +
             "INNER JOIN CestaProductos AS CP ON P.codigo = CP.codigoProducto " +

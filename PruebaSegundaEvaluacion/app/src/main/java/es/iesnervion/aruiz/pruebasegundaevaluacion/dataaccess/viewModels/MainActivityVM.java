@@ -15,6 +15,9 @@ public class MainActivityVM extends ViewModel {
 
     private MutableLiveData<String> dniUsuario;
 
+    private MutableLiveData<List<ProductoBO>> listadoProductos;
+    private MutableLiveData<List<String>> listadoNombreCategorias;
+
     public MutableLiveData<String> getDniUsuario() {
         if(dniUsuario == null){
             dniUsuario = new MutableLiveData<>();
@@ -22,6 +25,21 @@ public class MainActivityVM extends ViewModel {
         return dniUsuario;
     }
 
+    public MutableLiveData<List<ProductoBO>> getListadoProductos(){
+        if(listadoProductos == null){
+            listadoProductos = new MutableLiveData<>();
+        }
+        return listadoProductos;
+    }
+
+    public MutableLiveData<List<String>> getListadoNombreCategorias(){
+        if(listadoNombreCategorias == null){
+            listadoNombreCategorias = new MutableLiveData<>();
+        }
+        return listadoNombreCategorias;
+    }
+
+    //INSERTS
     public void insertarUsuario(UsuarioBO usuarioBO){
         RepositorioUsuario.insertarUsuario(usuarioBO);
     }
@@ -30,8 +48,16 @@ public class MainActivityVM extends ViewModel {
         RepositorioProducto.insertarProductos(productos);
     }
 
-    public List<ProductoBO> obtenerProductos(){
-        return RepositorioProducto.obtenerProductos();
+    //SELECTS
+    public void cargarProductos(){
+        listadoProductos.postValue(RepositorioProducto.obtenerProductos());
+    }
+    public void cargarProductosDeCategoria(String nombreCategoria){
+        listadoProductos.postValue(RepositorioProducto.obtenerProductosDeCategoria(nombreCategoria));
+    }
+
+    public void cargarNombreCategorias(){
+        listadoNombreCategorias.postValue(RepositorioProducto.obtenerCategorias());
     }
 
     public boolean comprobarSiExisteUsuario(String DNI, String contrasenha){

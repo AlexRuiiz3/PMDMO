@@ -89,31 +89,30 @@ public class FragmentRegistro extends Fragment implements View.OnClickListener {
         String email = editEmail.getText().toString();
         String direccion = editTextDireccion.getText().toString();
         String telefono = editTextTelefono.getText().toString();
-        /*if (validarDNI()){
-            if(Utilidades.validarCadena(nombre)) {
-                if(apellidos.split(" ").length > 0 && Utilidades.validarCadena(apellidos.split(" ")[0])){
+        if (validarDNI()) {
+            if (Utilidades.validarCadena(nombre)) {
+                if (apellidos.split(" ").length > 0 && Utilidades.validarCadena(apellidos.split(" ")[0])) {
                     if (validarContrasenhas()) {
                         if (validarEmail()) {
                             if (validarTelefono()) {
-                                String segundoApellido = apellidos.split(" ").length > 1 ? apellidos.split(" ")[1]: "";
-                                executor.execute(()->mainActivityVM.insertarUsuario(new UsuarioBO(dni,nombre,contrasenha,
-                                        direccion,apellidos.split(" ")[0],segundoApellido,email,telefono)
-                                ));*/
-                                Toast.makeText(getContext(),"Registro completado",Toast.LENGTH_SHORT).show();
+                                String segundoApellido = apellidos.split(" ").length > 1 ? apellidos.split(" ")[1] : "";
+                                executor.execute(() -> mainActivityVM.insertarUsuario(new UsuarioBO(dni, nombre, contrasenha,
+                                        direccion, apellidos.split(" ")[0], segundoApellido, email, telefono)
+                                ));
+                                Toast.makeText(getContext(), "Registro completado", Toast.LENGTH_SHORT).show();
                                 //mainActivityVM.getDniUsuario().postValue(dni);//Se guarda en el view model el DNI.
                                 FragmentListaProductos fragmentListaProductos = FragmentListaProductos.newInstance();
-
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentListaProductos).commit();
-                            /*}
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal, fragmentListaProductos).commit();
+                            }
                         }
+                    } else {
+                        Toast.makeText(getContext(), "El primer apellido no puede estar vacio", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(getContext(),"El primer apellido no puede estar vacio",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "El nombre no puede estar vacio", Toast.LENGTH_SHORT).show();
                 }
-            }else{
-                Toast.makeText(getContext(),"El nombre no puede estar vacio",Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
     }
 
     private boolean validarDNI(){
