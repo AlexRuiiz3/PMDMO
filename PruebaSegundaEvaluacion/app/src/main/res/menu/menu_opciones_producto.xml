@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/opcionMenuAnhadirProductoCesta"
+        android:title="@string/a_adir_a_la_cesta">
+
+    </item>
+    <item android:id="@+id/opcionMenuVerDetalles"
+          android:title="@string/ver_detalles" >
+    </item>
+</menu>
