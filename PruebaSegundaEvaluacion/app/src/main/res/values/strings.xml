@@ -24,10 +24,9 @@
     <string name="registro_de_usuario">Registro de usuario</string>
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
-<<<<<<< HEAD
+
     <string name="a_adir_a_la_cesta">Añadir a la cesta</string>
     <string name="ver_detalles">Ver detalles</string>
-=======
+
     <string name="volver_a_la_lista_original">Volver a la lista original</string>
->>>>>>> 9d9b33b0ac8e4cec31d73c5202cbdac9b185ad38
 </resources>
