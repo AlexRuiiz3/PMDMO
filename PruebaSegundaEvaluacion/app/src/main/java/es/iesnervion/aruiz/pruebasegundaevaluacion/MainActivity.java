@@ -26,17 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
         mainActivityVM = new ViewModelProvider(this).get(MainActivityVM.class);
         //this.deleteDatabase("Drogueria.db");
-        insertarProductosBBDD();
+        mainActivityVM.getListadoProductos().observe(this,this::observerListadoProductos);
+        mainActivityVM.cargarProductos();
     }
 
-
-
-    private void insertarProductosBBDD(){
-        List<ProductoBO> productos = mainActivityVM.obtenerProductos();
-        if(productos == null || productos.size() == 0){ //Si no hay productos en la BBDD
+    private void observerListadoProductos(List<ProductoBO> productos) {
+        if(productos == null || productos.size() == 0) { //Si no hay productos en la BBDD
             ArrayList<ProductoBO> listaProductos = new ArrayList<>();
             listaProductos.add(new ProductoBO("Heineken pack 12 botellas",7.33,2.44,"Bebidas",R.drawable.producto_heineken));
-            listaProductos.add(new ProductoBO("Pizza 4 quesos 390g",7.33,2.44,"Precocinados",R.drawable.producto_pizza_4_quesos));
+            listaProductos.add(new ProductoBO("Pizza 4 quesos 390g",2.25,2.25,"Precocinados",R.drawable.producto_pizza_4_quesos));
             listaProductos.add(new ProductoBO("Palomitas",2.64,6.77,"Aperitivos",R.drawable.producto_palomitas));
             listaProductos.add(new ProductoBO("Leche semidesnatada 1.5L",1.35,0.90,"Lácteos",R.drawable.producto_leche_semidesnatada));
             listaProductos.add(new ProductoBO("Botella de agua 1.5L",0.37,0.25,"Bebidas",R.drawable.producto_botella_de_agua));
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             listaProductos.add(new ProductoBO("Caldo de pollo 1L",0.72,0.72,"Conservas",R.drawable.producto_caldo_pollo));
             listaProductos.add(new ProductoBO("Tulipán 450g",1.95,4.33,"Lácteos",R.drawable.producto_tulipan));
             listaProductos.add(new ProductoBO("Cereales rellenos de leche",2.19,4.38,"Desayunos",R.drawable.producto_cereales_rellenos_de_leche));
-            listaProductos.add(new ProductoBO("Ambientador Automatico",2.05,8.20,"Ambientadores",R.drawable.producto_ambientador));
+            listaProductos.add(new ProductoBO("Ambientador automático",2.05,8.20,"Ambientadores",R.drawable.producto_ambientador));
             listaProductos.add(new ProductoBO("Tomate frito pack 3 brick",0.86,0.74,"Alimentacion",R.drawable.producto_tomate_frito));
             listaProductos.add(new ProductoBO("Mahou pack 12 latas",8.16,2.06,"Bebidas",R.drawable.producto_mahou));
             listaProductos.add(new ProductoBO("Cacaolat 1L",1.91,1.91,"Lácteos",R.drawable.producto_cacaolat));
