@@ -37,6 +37,19 @@ public class RepositorioProducto {
         return productosBO;
     }
 
+    public static ProductoBO obtenerProducto(ProductoBO productoBO){
+        List<ProductoDBO> productosDBO = productoDao.obtenerProducto(productoBO.getCodigo(),productoBO.getNombre()).blockingFirst();
+        ArrayList<ProductoBO> productosBO = new ArrayList<>();
+        ProductoBO productoSolicitado = new ProductoBO();
+        if(productosDBO != null && productosDBO.size() > 0){
+            for (ProductoDBO productoDBO: productosDBO) {
+                productosBO.add(new ProductoBO(productoDBO));
+            }
+            productoSolicitado = productosBO.get(0);
+        }
+        return productoSolicitado;
+    }
+
     public static List<ProductoBO> obtenerProductosDeCategoria(String nombreCategoria){
         List<ProductoDBO> productosDBO = productoDao.obtenerProductosDeCategoria(nombreCategoria).blockingFirst();
         ArrayList<ProductoBO> productosBO = new ArrayList<>();

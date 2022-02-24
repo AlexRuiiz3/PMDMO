@@ -39,67 +39,74 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageViewProductoFragDetalles">
+
         <TableRow>
+
             <TextView
                 android:id="@+id/textViewProducto"
-                android:text="@string/producto"
-                android:textSize="20sp"
-                android:textColor="@color/white"
                 android:background="@color/green"
                 android:padding="5dp"
-                android:textStyle="bold"/>
+                android:text="@string/producto"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/textViewNombreProductoFragDetalles"
-                android:textSize="20sp"
                 android:layout_weight="1"
-                android:gravity="center"
-                tools:text="Botella de agua"
-                android:textColor="@color/white"
                 android:background="@color/light_green"
-                android:padding="5dp"/>
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Botella de agua" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:id="@+id/textViewCantidad"
-                android:text="@string/cantidad_de_stock"
-                android:textSize="20sp"
-                android:textColor="@color/white"
                 android:background="@color/light_green"
                 android:padding="5dp"
-                android:textStyle="bold"/>
+                android:text="@string/cantidad_de_stock"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/textViewCantidadProductoFragDetalles"
-                android:gravity="center"
-                android:textSize="20sp"
                 android:layout_weight="1"
-                tools:text="5"
-                android:textColor="@color/white"
                 android:background="@color/green"
-                android:padding="5dp"/>
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="5" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:id="@+id/textViewPrecio"
-                android:text="@string/precio_litro_kilo"
-                android:textSize="20sp"
-                android:textColor="@color/white"
                 android:background="@color/green"
                 android:padding="5dp"
-                android:textStyle="bold"/>
+                android:text="@string/precio_litro_kilo"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/textViewPrecioProductoFragDetalles"
-                android:gravity="center"
-                android:textSize="20sp"
                 android:layout_weight="1"
-                tools:text="5.99€"
-                android:textColor="@color/white"
                 android:background="@color/light_green"
-                android:padding="5dp"/>
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="5.99€" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

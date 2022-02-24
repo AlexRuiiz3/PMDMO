@@ -10,6 +10,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -75,7 +76,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentListaProductosBinding.inflate(getLayoutInflater());
-        mainActivityVM = new ViewModelProvider(this).get(MainActivityVM.class);
         View view = binding.getRoot();
 
         botonFiltar = binding.imageButtonFlitrar;
@@ -88,15 +88,13 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         searchView.setOnQueryTextListener(this);
 
         //Datos necesarios de VM
+        mainActivityVM = new ViewModelProvider(requireActivity()).get(MainActivityVM.class);
         mainActivityVM.getListadoProductos().observe(getViewLifecycleOwner(),this::observerListadoProductos);
-        mainActivityVM.cargarProductos();
         mainActivityVM.getListadoNombreCategorias().observe(getViewLifecycleOwner(),this::observerListadoNombreCategorias);
         mainActivityVM.cargarNombreCategorias();
 
         recyclerView = binding.recyclerViewProductos;
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3)); //Para especificar que el contenido del recylcerView se vea en 3 columnas
-
-
 
         /* Esto es necesario para poder volver del fragment de listado de productos a el fragment de inicio de sesion.
         *  Lo que se hace en entrar dentro del evento que esta asociado al boton del movil del ir para atras.
@@ -155,7 +153,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         List<ProductoBO> productos = null;
         switch (item.getItemId()){
             case R.id.menuBuscadorProductosFiltrarCategorias:
-                //TODO obtener cuantas categorias hay en la BBDD y mostrar su nombre
                 SubMenu submenu = item.getSubMenu(); //Se crea un subMenu
                 for (int i = 0; i < listadoNombreCategorias.size(); i++){
                     submenu.add(listadoNombreCategorias.get(i));
@@ -260,7 +257,7 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
             recyclerView.setAdapter(new AdapterRecyclerViewListProducts(listaProductos));
         }
 
-        class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
             private TextView textViewNombre;
             private TextView textViewPrecio;
             private ImageView imageViewImagenProducto;
@@ -284,7 +281,27 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),producto.getNombre(),Toast.LENGTH_SHORT).show();
+                PopupMenu popup = new PopupMenu(getContext(), v);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.menu_opciones_producto, popup.getMenu());
+                popup.setOnMenuItemClickListener(this);
+                popup.show();
+            }
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch(item.getItemId()){
+                    case R.id.opcionMenuAnhadirProductoCesta:
+
+                    break;
+
+                    case R.id.opcionMenuVerDetalles:
+                        mainActivityVM.getProductoSeleccionado().postValue(producto);
+                        FragmentDetallesProducto fragmentDetallesProducto = FragmentDetallesProducto.newInstance();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentDetallesProducto).addToBackStack(null).commit();
+                    break;
+                }
+                return true;
             }
         }
     }

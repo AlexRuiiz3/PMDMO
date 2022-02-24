@@ -54,7 +54,7 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentPrincipalBinding.inflate(getLayoutInflater());
-        mainActivityVM = new ViewModelProvider(this).get(MainActivityVM.class);
+        mainActivityVM = new ViewModelProvider(requireActivity()).get(MainActivityVM.class);
 
         View view = binding.getRoot();
 

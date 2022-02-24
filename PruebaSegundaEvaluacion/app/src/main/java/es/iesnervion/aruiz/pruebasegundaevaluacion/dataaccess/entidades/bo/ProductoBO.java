@@ -6,22 +6,31 @@ public class ProductoBO {
 
     private int codigo;
     private String nombre;
+    private int cantidadStock;
     private double precio;
     private double precioKiloLitro;
     private String categoria;
     private int imagen;
 
-    public ProductoBO(String nombre, double precio, double precioKiloLitro, String categoria, int imagen) {
+    public ProductoBO() {
+
+    }
+
+    public ProductoBO(String nombre,int cantidadStock, double precio, double precioKiloLitro, String categoria, int imagen) {
         this.nombre = nombre;
+        this.cantidadStock = cantidadStock;
         this.precio = precio;
         this.precioKiloLitro = precioKiloLitro;
         this.categoria = categoria;
         this.imagen = imagen;
     }
 
+
+
     public ProductoBO(ProductoDBO productoDBO) {
         this.codigo = productoDBO.codigo;
         this.nombre = productoDBO.nombre;
+        this.cantidadStock = productoDBO.cantidadStock;
         this.precio = productoDBO.precio;
         this.precioKiloLitro = productoDBO.precioKiloLitro;
         this.categoria = productoDBO.categoria;
@@ -42,6 +51,14 @@ public class ProductoBO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getCantidadStock() {
+        return cantidadStock;
+    }
+
+    public void setCantidadStock(int cantidadStock) {
+        this.cantidadStock = cantidadStock;
     }
 
     public double getPrecio() {

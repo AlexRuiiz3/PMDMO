@@ -1,6 +1,5 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -17,6 +16,14 @@ public class MainActivityVM extends ViewModel {
 
     private MutableLiveData<List<ProductoBO>> listadoProductos;
     private MutableLiveData<List<String>> listadoNombreCategorias;
+    private MutableLiveData<ProductoBO> productoSeleccionado;
+
+    public MutableLiveData<ProductoBO> getProductoSeleccionado() {
+        if(productoSeleccionado == null){
+            productoSeleccionado = new MutableLiveData<>();
+        }
+        return productoSeleccionado;
+    }
 
     public MutableLiveData<String> getDniUsuario() {
         if(dniUsuario == null){
@@ -66,5 +73,9 @@ public class MainActivityVM extends ViewModel {
 
     public boolean comprobarSiExisteUsuario(String DNI){
         return RepositorioUsuario.comprobarSiExisteDNIUsuario(DNI);
+    }
+
+    public ProductoBO obtenerProducto(ProductoBO productoBO){
+        return RepositorioProducto.obtenerProducto(productoBO);
     }
 }

@@ -11,6 +11,7 @@ public class Mapper { //Clase que se usa para poder pasar de las clases DBO A BO
         ProductoDBO productoDBO = new ProductoDBO();
         productoDBO.codigo = productoBO.getCodigo();
         productoDBO.nombre = productoBO.getNombre();
+        productoDBO.cantidadStock = productoBO.getCantidadStock();
         productoDBO.precio = productoBO.getPrecio();
         productoDBO.precioKiloLitro = productoBO.getPrecioKiloLitro();
         productoDBO.categoria = productoBO.getCategoria();

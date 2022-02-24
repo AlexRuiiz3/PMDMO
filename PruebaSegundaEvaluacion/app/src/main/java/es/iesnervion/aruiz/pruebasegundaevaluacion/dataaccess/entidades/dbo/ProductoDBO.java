@@ -14,6 +14,8 @@ public class ProductoDBO {
     @Nullable
     public String nombre;
     @Nullable
+    public int cantidadStock;
+    @Nullable
     public double precio;
     @Nullable
     public double precioKiloLitro;
