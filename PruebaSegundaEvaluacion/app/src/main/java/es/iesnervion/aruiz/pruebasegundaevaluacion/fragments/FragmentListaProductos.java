@@ -1,38 +1,28 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
@@ -142,7 +132,8 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
                 break;
 
             case R.id.imageButtonCestaCompra:
-                Toast.makeText(getContext(),"Ir a cesta de compra",Toast.LENGTH_SHORT).show();
+                FragmentCestaCompra fragmentCestaCompra = FragmentCestaCompra.newInstance(); //Se añade el fragment principal
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentCestaCompra).addToBackStack(null).commit();
                 break;
         }
     }

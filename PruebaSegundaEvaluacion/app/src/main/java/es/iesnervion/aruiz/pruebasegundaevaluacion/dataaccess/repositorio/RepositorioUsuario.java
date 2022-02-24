@@ -1,15 +1,11 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.repositorio;
 
-import java.util.List;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.Utilidades.Mapper;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.UsuarioBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Generica;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.UsuarioDao;
-import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.UsuarioDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.room.BaseDatosDrogueria;
-import io.reactivex.Flowable;
-import io.reactivex.Single;
 
 public class RepositorioUsuario {
 

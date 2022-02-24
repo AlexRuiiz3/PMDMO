@@ -13,7 +13,6 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.Cest
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.ProductoDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.UsuarioDBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relaciones.CestaProductoCrossRef;
-import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.relaciones.CestaWithProductos;
 
 @Database(entities = {
                      CestaDBO.class,

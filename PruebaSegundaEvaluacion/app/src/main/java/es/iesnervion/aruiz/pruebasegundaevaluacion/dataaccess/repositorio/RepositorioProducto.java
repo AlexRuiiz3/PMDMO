@@ -1,9 +1,6 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.repositorio;
 
-import androidx.lifecycle.LiveData;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Generica;

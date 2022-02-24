@@ -3,18 +3,15 @@ package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentDetallesProductoBinding;
-import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentListaProductosBinding;
 
 public class FragmentDetallesProducto extends Fragment {
 
@@ -56,6 +53,5 @@ public class FragmentDetallesProducto extends Fragment {
         binding.textViewNombreProductoFragDetalles.setText(productoBO.getNombre());
         binding.textViewCantidadProductoFragDetalles.setText(String.valueOf(productoBO.getCantidadStock()));
         binding.textViewPrecioProductoFragDetalles.setText(String.valueOf(productoBO.getPrecioKiloLitro()));
-
     }
 }
