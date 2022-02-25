@@ -20,7 +20,9 @@ public class RepositorioProducto {
         for (ProductoBO productoBO: productos) {
             productosDBO.add(Mapper.productoBOaDBO(productoBO));
         }
-        database.productoDao().insertarProductos(productosDBO);
+        if(obtenerProductos().size() == 0){
+            database.productoDao().insertarProductos(productosDBO);
+        }
     }
 
     public static List<ProductoBO> obtenerProductos(){
@@ -59,7 +61,17 @@ public class RepositorioProducto {
     }
 
     public static List<String> obtenerCategorias(){
-        List<String> nombresCategorias = productoDao.obtenerNombreCategorias().blockingFirst();
-        return nombresCategorias;
+        return productoDao.obtenerNombreCategorias().blockingFirst();
+    }
+
+    public static List<ProductoBO> obtenerProductosCestaUsuario(String dniUsuario){
+        List<ProductoDBO> productosDBO = productoDao.obtenerProductosCestaNoEnviadaUsuario(dniUsuario).blockingFirst();
+        ArrayList<ProductoBO> productosBO = new ArrayList<>();
+        if(productosDBO != null){
+            for (ProductoDBO productoDBO: productosDBO) {
+                productosBO.add(new ProductoBO(productoDBO));
+            }
+        }
+        return productosBO;
     }
 }

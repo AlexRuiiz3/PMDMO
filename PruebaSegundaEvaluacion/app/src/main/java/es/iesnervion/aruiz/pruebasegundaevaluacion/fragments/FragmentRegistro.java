@@ -21,6 +21,7 @@ import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.UsuarioBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentRegistroBinding;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Generica;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Utilidades;
 
 public class FragmentRegistro extends Fragment implements View.OnClickListener {
@@ -100,7 +101,7 @@ public class FragmentRegistro extends Fragment implements View.OnClickListener {
                                         direccion, apellidos.split(" ")[0], segundoApellido, email, telefono)
                                 ));
                                 Toast.makeText(getContext(), "Registro completado", Toast.LENGTH_SHORT).show();
-                                //mainActivityVM.getDniUsuario().postValue(dni);//Se guarda en el view model el DNI.
+                                Generica.dniUsuario = dni;
                                 FragmentListaProductos fragmentListaProductos = FragmentListaProductos.newInstance();
                                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal, fragmentListaProductos).commit();
                             }

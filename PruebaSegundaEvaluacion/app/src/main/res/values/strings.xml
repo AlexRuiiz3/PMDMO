@@ -25,10 +25,10 @@
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
 
-    <string name="a_adir_a_la_cesta">Añadir a la cesta</string>
     <string name="ver_detalles">Ver detalles</string>
 
     <string name="volver_a_la_lista_original">Volver a la lista original</string>
     <string name="ir_a_la_cesta">Ir a la cesta</string>
     <string name="a_adir_a_la_cesta">Añadir a la cesta</string>
+    <string name="eliminar_de_la_cesta">Eliminar de la cesta</string>
 </resources>

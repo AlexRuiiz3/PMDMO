@@ -23,4 +23,8 @@ public class RepositorioUsuario {
     public static boolean comprobarSiExisteDNIUsuario(String DNI){
         return usuarioDao.obtenerUsuarioPorDNI(DNI).blockingFirst().size() > 0;
     }
+
+    public static String obtenerEmailUsuairo(String DNI){
+        return usuarioDao.obtenerUsuarioPorDNI(DNI).blockingFirst().get(0).email;
+    }
 }

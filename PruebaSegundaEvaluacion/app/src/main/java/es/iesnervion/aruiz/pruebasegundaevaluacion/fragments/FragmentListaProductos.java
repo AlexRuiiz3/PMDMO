@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,14 +22,19 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.bo.ProductoBO;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentListaProductosBinding;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Generica;
 
 public class FragmentListaProductos extends Fragment implements View.OnClickListener, PopupMenu.OnMenuItemClickListener, SearchView.OnQueryTextListener {
 
@@ -80,8 +86,11 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         //Datos necesarios de VM
         mainActivityVM = new ViewModelProvider(requireActivity()).get(MainActivityVM.class);
         mainActivityVM.getListadoProductos().observe(getViewLifecycleOwner(),this::observerListadoProductos);
+        mainActivityVM.cargarProductos();
         mainActivityVM.getListadoNombreCategorias().observe(getViewLifecycleOwner(),this::observerListadoNombreCategorias);
         mainActivityVM.cargarNombreCategorias();
+        mainActivityVM.getNumeroProductosCesta().observe(getViewLifecycleOwner(),this::observerNumeroProductosCesta);
+        mainActivityVM.getNumeroProductosCesta().postValue(mainActivityVM.obtenerNumeroProductosCesta(Generica.dniUsuario));
 
         recyclerView = binding.recyclerViewProductos;
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3)); //Para especificar que el contenido del recylcerView se vea en 3 columnas
@@ -109,6 +118,12 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
         return view;
     }
 
+
+    private void observerNumeroProductosCesta(Integer integer) {
+
+        binding.textViewNumeroProductosCesta.setText(String.valueOf(integer));
+    }
+
     private void observerListadoNombreCategorias(List<String> nombresCategorias) {
         listadoNombreCategorias = nombresCategorias;
     }
@@ -132,7 +147,7 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
                 break;
 
             case R.id.imageButtonCestaCompra:
-                FragmentCestaCompra fragmentCestaCompra = FragmentCestaCompra.newInstance(); //Se añade el fragment principal
+                FragmentCestaCompra fragmentCestaCompra = FragmentCestaCompra.newInstance();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentCestaCompra).addToBackStack(null).commit();
                 break;
         }
@@ -141,7 +156,6 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
     //Metodo para cuando se pulse una opcion del menu flotante
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        List<ProductoBO> productos = null;
         switch (item.getItemId()){
             case R.id.menuBuscadorProductosFiltrarCategorias:
                 SubMenu submenu = item.getSubMenu(); //Se crea un subMenu
@@ -283,7 +297,16 @@ public class FragmentListaProductos extends Fragment implements View.OnClickList
             public boolean onMenuItemClick(MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.opcionMenuAnhadirProductoCesta:
-
+                        Executor executor = Executors.newSingleThreadExecutor();
+                        executor.execute(() ->  {
+                            Looper.prepare();//Para poder mostrar los Toast ya que se hace desde un hilo secundario
+                            if(mainActivityVM.insertarProductoEnCesta(Generica.dniUsuario,producto.getCodigo())){
+                                Toast.makeText(getContext(),"El producto fue añadido",Toast.LENGTH_SHORT).show();
+                                mainActivityVM.getNumeroProductosCesta().postValue(Integer.parseInt((String) binding.textViewNumeroProductosCesta.getText()) + 1);
+                            }else{
+                                Toast.makeText(getContext(),"Producto ya añadido",Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     break;
 
                     case R.id.opcionMenuVerDetalles:

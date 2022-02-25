@@ -7,6 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.CestaDao;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.CestaWithProductosDao;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.ProductoDao;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.daos.UsuarioDao;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.entidades.dbo.CestaDBO;
@@ -27,6 +28,7 @@ public abstract class BaseDatosDrogueria extends RoomDatabase {
     public abstract CestaDao cestaDao();
     public abstract UsuarioDao usuarioDao();
     public abstract ProductoDao productoDao();
+    public abstract CestaWithProductosDao cestaWithProductosDao();
 
     private static BaseDatosDrogueria APPDATABASE = null;
 

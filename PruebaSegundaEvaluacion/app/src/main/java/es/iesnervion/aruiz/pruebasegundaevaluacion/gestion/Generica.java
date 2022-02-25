@@ -5,4 +5,5 @@ import android.content.Context;
 public class Generica {
 
     public static Context contextoAplicacion;
+    public static String dniUsuario;
 }

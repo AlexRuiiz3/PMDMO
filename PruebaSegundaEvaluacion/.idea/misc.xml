@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/layout/fragment_cesta_compra.xml" value="0.1" />
+        <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/layout/fragment_lista_productos.xml" value="0.17889492753623187" />
         <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/layout/fragment_principal.xml" value="0.1875" />
         <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/layout/fragment_registro.xml" value="0.25" />
         <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/menu/menu_buscador_productos.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/menu/menu_opciones_producto.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/AlexRuiz/Desktop/Ciclo DAM/Repositorios/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/menu/menu_producto_cesta.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/aruiz/Documents/GitHub/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/drawable/fondo_vender_redondeado.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/aruiz/Documents/GitHub/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/aruiz/Documents/GitHub/PMDMO/PruebaSegundaEvaluacion/app/src/main/res/layout/fragment_cesta_compra.xml" value="0.22" />

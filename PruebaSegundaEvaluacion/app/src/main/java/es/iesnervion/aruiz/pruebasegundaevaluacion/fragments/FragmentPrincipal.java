@@ -18,6 +18,7 @@ import com.google.android.material.textview.MaterialTextView;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.R;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.dataaccess.viewModels.MainActivityVM;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.databinding.FragmentPrincipalBinding;
+import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Generica;
 import es.iesnervion.aruiz.pruebasegundaevaluacion.gestion.Utilidades;
 
 public class FragmentPrincipal extends Fragment implements View.OnClickListener {
@@ -81,8 +82,8 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener 
             if(Utilidades.comprarValidezDNI(DNI,getContext())){ //Si el DNI es valido
                 if(Utilidades.validarContrasenha(contrasenha,getContext())){
                     if(mainActivityVM.comprobarSiExisteUsuario(DNI,contrasenha)){
-                        mainActivityVM.getDniUsuario().postValue(DNI);//Se guarda en el view model el DNI.
                         Toast.makeText(getContext(),"Acceso concedido",Toast.LENGTH_SHORT).show();
+                        Generica.dniUsuario = DNI;
                         FragmentListaProductos fragmentListaProductos = FragmentListaProductos.newInstance();
                         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal,fragmentListaProductos).addToBackStack(null).commit();
                     }else{
