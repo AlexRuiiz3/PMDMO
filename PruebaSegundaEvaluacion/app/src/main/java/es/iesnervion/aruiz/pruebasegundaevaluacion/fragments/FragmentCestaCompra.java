@@ -1,6 +1,7 @@
 package es.iesnervion.aruiz.pruebasegundaevaluacion.fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -86,7 +87,7 @@ public class FragmentCestaCompra extends Fragment implements View.OnClickListene
         for(ProductoBO producto: productosCestaUsuario){
             total += producto.getPrecio();
         }
-        binding.textViewPrecioTotalCesta.setText("Total:"+df.format(total)+"€");
+        binding.textViewPrecioTotalCesta.setText("Total: "+df.format(total)+"€");
     }
 
     @Override
@@ -96,12 +97,16 @@ public class FragmentCestaCompra extends Fragment implements View.OnClickListene
                 Toast.makeText(getContext(),"No se puede aceptar, no hay productos añadidos",Toast.LENGTH_SHORT).show();
             }else{
                 executor.execute(() -> {
-                    Intent email = new Intent(Intent.ACTION_SEND);
-                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{ mainActivityVM.obtenerEmailUsuario(Generica.dniUsuario)});
-                    email.putExtra(Intent.EXTRA_SUBJECT, "Compra Supermercado");
-                    email.putExtra(Intent.EXTRA_TEXT, "La cesta estara preparada en dos horas. Importe: "+binding.textViewPrecioTotalCesta.getText());
-                    email.setType("message/rfc822");
-                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                    String emailUsuario = mainActivityVM.obtenerEmailUsuario(Generica.dniUsuario);
+                    String subject = "Compra Supermercado";
+                    String body = "La cesta estará preparada en dos horas. Importe "+binding.textViewPrecioTotalCesta.getText();
+                    String mailTo = "mailto:" + emailUsuario +
+                                    "?&subject=" + Uri.encode(subject) +
+                                    "&body=" + Uri.encode(body);
+                    Intent emailIntent = new Intent(Intent.ACTION_VIEW);
+                    emailIntent.setData(Uri.parse(mailTo));
+                    startActivity(emailIntent);
+
                     mainActivityVM.actualizarEstadoCesta(Generica.dniUsuario,1);
                     mainActivityVM.cargarProductosCestaNoEnviadaUsuario(Generica.dniUsuario);
                 });

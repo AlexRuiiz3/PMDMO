@@ -106,12 +106,12 @@ public class FragmentRegistro extends Fragment implements View.OnClickListener {
                                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmetPrincipal, fragmentListaProductos).commit();
                             }
                         }
-                    } else {
-                        Toast.makeText(getContext(), "El primer apellido no puede estar vacio", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getContext(), "El nombre no puede estar vacio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "El primer apellido no puede estar vacio", Toast.LENGTH_SHORT).show();
                 }
+            }else {
+                Toast.makeText(getContext(), "El nombre no puede estar vacio", Toast.LENGTH_SHORT).show();
             }
         }
     }
